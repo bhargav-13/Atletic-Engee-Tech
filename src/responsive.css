@@ -27,6 +27,7 @@ video {
 /* Uniform section padding for every top-level wrapper, even the ones
    that don't share the .section class (each defines its own X padding). */
 @media (max-width: 768px) {
+
   .global-cta-section,
   .tech-matrix-section,
   .engineered-specs-section,
@@ -42,7 +43,9 @@ video {
    1. UNIFORM SECTION PADDING
    ============================================================ */
 @media (max-width: 1400px) {
-  .section, .container {
+
+  .section,
+  .container {
     padding-left: 5% !important;
     padding-right: 5% !important;
   }
@@ -52,9 +55,15 @@ video {
    rhythm (the old rule forced a broken 5rem top/bottom onto the nav bar,
    making it ~196px tall on phones). */
 @media (max-width: 768px) {
-  .section, .container {
-    padding-left: 6% !important;
-    padding-right: 6% !important;
+
+  /* Unify horizontal padding to a tight 5% across every content section so
+     none of them sit with the oversized desktop 10.5% inset. Hero sections
+     and the full-bleed manufacture band keep their own (intentional) edges. */
+  .section,
+  .container,
+  [class*="-section"]:not([class*="hero"]):not(.about-manufacture-section) {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
   }
 
   /* Trim the generous desktop vertical rhythm (was 5rem/80px) down for
@@ -71,22 +80,40 @@ video {
   .product-grid-section {
     padding-top: 5.5rem !important;
   }
+
+  /* The product detail hero pads the section itself (not an inner wrap),
+     so it's safe to tighten its side padding too. */
+  .detail-hero-section {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
 }
 
 /* Header Flex Layouts */
 @media (max-width: 992px) {
-  .perf-deliver-header, .perf-header, .industry-header-flex, .quality-header, .comp-header {
+
+  .perf-deliver-header,
+  .perf-header,
+  .industry-header-flex,
+  .quality-header,
+  .comp-header {
     flex-direction: column !important;
     gap: 1.5rem !important;
     margin-bottom: 3.5rem !important;
   }
 
-  .perf-deliver-title h2, .perf-title h2, .header-left h2, .comp-title h2 {
+  .perf-deliver-title h2,
+  .perf-title h2,
+  .header-left h2,
+  .comp-title h2 {
     font-size: 2.2rem !important;
     margin-bottom: 1.5rem !important;
   }
 
-  .perf-deliver-desc p, .perf-desc p, .header-right p, .comp-desc p {
+  .perf-deliver-desc p,
+  .perf-desc p,
+  .header-right p,
+  .comp-desc p {
     font-size: 1.1rem !important;
     max-width: 100% !important;
   }
@@ -94,28 +121,41 @@ video {
 
 /* Grids - Default behavior */
 @media (max-width: 1100px) {
-  .oval-grid, .product-grid, .industry-cards-grid, .instruments-grid {
+
+  .oval-grid,
+  .product-grid,
+  .industry-cards-grid,
+  .instruments-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (max-width: 768px) {
-  .oval-grid, .product-grid, .industry-cards-grid, .instruments-grid {
+
+  .oval-grid,
+  .product-grid,
+  .industry-cards-grid,
+  .instruments-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
 
-  .oval-card, .product-card, .industry-card, .instrument-card {
+  .oval-card,
+  .product-card,
+  .industry-card,
+  .instrument-card {
     min-height: auto !important;
     padding: 2rem !important;
   }
 
-  .product-card-img img, .card-img {
+  .product-card-img img,
+  .card-img {
     max-height: 200px !important;
     width: auto !important;
   }
 
-  .instrument-title, .product-title {
+  .instrument-title,
+  .product-title {
     font-size: 1.25rem !important;
   }
 }
@@ -142,7 +182,9 @@ video {
 
 /* Hero Section */
 @media (max-width: 768px) {
-  .hero-heading-primary, .hero-heading-secondary {
+
+  .hero-heading-primary,
+  .hero-heading-secondary {
     font-size: 2.5rem !important;
     line-height: 1.2 !important;
   }
@@ -274,6 +316,7 @@ video {
    line on phones (the inline white-space:nowrap would overflow).
    ============================================================ */
 @media (max-width: 768px) {
+
   .hero-heading-primary span,
   .hero-heading-secondary span {
     white-space: normal !important;
@@ -285,8 +328,8 @@ video {
    Tighten padding and scale type down one more step.
    ============================================================ */
 @media (max-width: 480px) {
+
   .section,
-  .container,
   .navbar,
   .footer,
   .global-cta-section,
@@ -295,6 +338,12 @@ video {
   .perf-section {
     padding-left: 5% !important;
     padding-right: 5% !important;
+  }
+
+
+  .container {
+    padding-left: 0% !important;
+    padding-right: 0% !important;
   }
 
   .hero-heading-primary,
@@ -315,9 +364,17 @@ video {
     margin-bottom: 1.5rem !important;
   }
 
-  h1 { font-size: 2rem !important; }
-  h2 { font-size: 1.7rem !important; }
-  h3 { font-size: 1.35rem !important; }
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.7rem !important;
+  }
+
+  h3 {
+    font-size: 1.35rem !important;
+  }
 
   .quality-hero-main-title {
     font-size: 2.4rem !important;
@@ -343,6 +400,7 @@ video {
    TOUCH TARGETS — ensure interactive elements meet ~44px.
    ============================================================ */
 @media (hover: none) and (pointer: coarse) {
+
   .nav-cta,
   .btn-explore,
   .perf-tab,
@@ -356,6 +414,7 @@ video {
    (GSAP/Framer are handled in JS; this covers CSS transitions).
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -378,6 +437,7 @@ video {
    logo so it never crowds the hamburger.)
    ============================================================ */
 @media (max-width: 768px) {
+
   /* Use dynamic viewport height so the open menu isn't clipped by mobile
      browser chrome, and keep it scrollable + clear of the notch.
      !important is required: responsive.css loads before Navbar.css. */
@@ -411,6 +471,7 @@ video {
 }
 
 @media (max-width: 380px) {
+
   /* Tighten the logo lockup on very small phones so it can't crowd the
      hamburger button. */
   .navbar-logo a {
@@ -434,6 +495,7 @@ video {
    FOOTER — mobile refinements
    ============================================================ */
 @media (max-width: 768px) {
+
   /* The desktop layout is a 3-col grid with explicit row placement; forced
      into one column it produces oversized implicit rows and big gaps
      (footer was ~1730px tall). Use a simple flex column with one uniform
@@ -480,6 +542,7 @@ video {
 }
 
 @media (max-width: 380px) {
+
   /* Keep the link columns side-by-side even on small phones — stacking them
      made the footer far too tall. Just tighten the gap. */
   .footer-nav-group {
