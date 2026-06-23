@@ -1,19 +1,75 @@
 /* --- GLOBAL RESPONSIVE OVERRIDES --- */
 
-/* Uniform Section Padding */
+/* ============================================================
+   0. GLOBAL SAFETY NET
+   Prevents the #1 cause of "broken on mobile": horizontal overflow.
+   ============================================================ */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  /* Keep long words / codes from forcing the page wider than the screen. */
+  overflow-wrap: break-word;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Uniform section padding for every top-level wrapper, even the ones
+   that don't share the .section class (each defines its own X padding). */
+@media (max-width: 768px) {
+  .global-cta-section,
+  .tech-matrix-section,
+  .engineered-specs-section,
+  .perf-section,
+  .reliability-banner,
+  .related-products-section {
+    padding-left: 6% !important;
+    padding-right: 6% !important;
+  }
+}
+
+/* ============================================================
+   1. UNIFORM SECTION PADDING
+   ============================================================ */
 @media (max-width: 1400px) {
-  .section, .container, .navbar, .footer {
+  .section, .container {
     padding-left: 5% !important;
     padding-right: 5% !important;
   }
 }
 
+/* Content sections only — the navbar and footer manage their own vertical
+   rhythm (the old rule forced a broken 5rem top/bottom onto the nav bar,
+   making it ~196px tall on phones). */
 @media (max-width: 768px) {
-  .section, .container, .navbar, .footer {
+  .section, .container {
     padding-left: 6% !important;
     padding-right: 6% !important;
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+  }
+
+  /* Trim the generous desktop vertical rhythm (was 5rem/80px) down for
+     mobile. Covers the shared .section class plus every standalone
+     "*-section" wrapper, but skips hero sections — they need their large
+     top padding to clear the fixed navbar. */
+  .section,
+  [class*="-section"]:not([class*="hero"]) {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* The Product page's first section still needs to clear the navbar. */
+  .product-grid-section {
+    padding-top: 5.5rem !important;
   }
 }
 
@@ -210,5 +266,227 @@
   .global-flags img {
     width: 80px !important;
     height: 45px !important;
+  }
+}
+
+/* ============================================================
+   HERO — stop the animated heading spans from forcing a single
+   line on phones (the inline white-space:nowrap would overflow).
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-heading-primary span,
+  .hero-heading-secondary span {
+    white-space: normal !important;
+  }
+}
+
+/* ============================================================
+   EXTRA-SMALL PHONES (<= 480px)
+   Tighten padding and scale type down one more step.
+   ============================================================ */
+@media (max-width: 480px) {
+  .section,
+  .container,
+  .navbar,
+  .footer,
+  .global-cta-section,
+  .tech-matrix-section,
+  .engineered-specs-section,
+  .perf-section {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  .hero-heading-primary,
+  .hero-heading-secondary {
+    font-size: 2.1rem !important;
+  }
+
+  .hero-body-text {
+    font-size: 1rem !important;
+  }
+
+  .comp-title h2,
+  .perf-title h2,
+  .section-title,
+  .matrix-heading,
+  .integrity-title {
+    font-size: 1.9rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.7rem !important; }
+  h3 { font-size: 1.35rem !important; }
+
+  .quality-hero-main-title {
+    font-size: 2.4rem !important;
+  }
+
+  .global-cta-text p {
+    font-size: 1.2rem !important;
+  }
+
+  .global-flags {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Comfortable tap targets on the smallest screens. */
+  .btn-explore,
+  .nav-cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   TOUCH TARGETS — ensure interactive elements meet ~44px.
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  .nav-cta,
+  .btn-explore,
+  .perf-tab,
+  .scroll-top-btn {
+    min-height: 44px;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY — honour reduced-motion at the CSS layer too
+   (GSAP/Framer are handled in JS; this covers CSS transitions).
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   NAVBAR — mobile refinements
+   (The bloated-height bug is fixed by removing .navbar from the
+   section-padding rule above; this just polishes the small-screen
+   logo so it never crowds the hamburger.)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Use dynamic viewport height so the open menu isn't clipped by mobile
+     browser chrome, and keep it scrollable + clear of the notch.
+     !important is required: responsive.css loads before Navbar.css. */
+  .mobile-menu {
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow-y: auto !important;
+    padding: 6rem 6% 3rem !important;
+    padding-top: max(6rem, env(safe-area-inset-top)) !important;
+  }
+
+  /* Compact the menu so it doesn't feel oversized on small screens. */
+  .mobile-menu-content {
+    gap: 0.75rem !important;
+  }
+
+  .mobile-menu-content a {
+    font-size: 1.6rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  .mobile-menu-content .nav-cta {
+    font-size: 1.05rem !important;
+    padding: 0.9rem 2.25rem !important;
+    margin-top: 1.25rem !important;
+  }
+
+  .mobile-menu-footer {
+    padding-top: 2rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Tighten the logo lockup on very small phones so it can't crowd the
+     hamburger button. */
+  .navbar-logo a {
+    gap: 0.5rem !important;
+  }
+
+  .navbar-logo img {
+    height: 28px !important;
+  }
+
+  .logo-text {
+    font-size: 1.05rem !important;
+  }
+
+  .mobile-menu-content a {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* ============================================================
+   FOOTER — mobile refinements
+   ============================================================ */
+@media (max-width: 768px) {
+  /* The desktop layout is a 3-col grid with explicit row placement; forced
+     into one column it produces oversized implicit rows and big gaps
+     (footer was ~1730px tall). Use a simple flex column with one uniform
+     gap, and zero the per-child margins that piled on extra space. */
+  .footer-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .footer-info-group,
+  .footer-group-1-social,
+  .footer-group-2-social,
+  .footer-copyright-wrap,
+  .footer-back-to-top-wrap {
+    margin-top: 0 !important;
+  }
+
+  /* Two short link columns sit side-by-side; even the gap and cancel the
+     inline 2rem left-margin that skews the second group / social row. */
+  .footer-nav-group {
+    gap: 1.25rem !important;
+  }
+
+  /* The 2rem space under each heading is excessive on mobile. */
+  .footer-col h4 {
+    margin-bottom: 1rem !important;
+  }
+
+  .footer-group-2-nav .footer-col,
+  .footer-social {
+    margin-left: 0 !important;
+  }
+
+  /* In each two-column nav group, align the left column left and the
+     right column right so the lists hug the outer edges on mobile. */
+  .footer-nav-group .footer-col:first-child {
+    text-align: left !important;
+  }
+
+  .footer-nav-group .footer-col:last-child {
+    text-align: right !important;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Keep the link columns side-by-side even on small phones — stacking them
+     made the footer far too tall. Just tighten the gap. */
+  .footer-nav-group {
+    gap: 1rem !important;
+  }
+
+  .footer-bottom-content {
+    text-align: center;
   }
 }

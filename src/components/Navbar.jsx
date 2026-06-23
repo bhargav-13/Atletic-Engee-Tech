@@ -63,7 +63,7 @@ const Navbar = () => {
       </div>
 
       <button
-        className="mobile-toggle"
+        className={`mobile-toggle ${isMenuOpen ? 'open' : ''}`}
         aria-label="Menu"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
@@ -112,8 +112,8 @@ const Navbar = () => {
                 transition={{ delay: 0.6 }}
               >
                 <span className="mobile-menu-contact">GET IN TOUCH</span>
-                <p style={{ color: 'white', marginBottom: '0.5rem' }}>info@atleticengeetech.com</p>
-                <p style={{ color: 'white' }}>+91 98765 43210</p>
+                <p className="mobile-menu-detail">info@atleticengeetech.com</p>
+                <p className="mobile-menu-detail">+91 98765 43210</p>
               </motion.div>
             </div>
           </motion.div>
