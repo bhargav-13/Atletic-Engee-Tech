@@ -103,8 +103,8 @@
 
 @media (max-width: 768px) {
   .hero-new {
-    height: auto;
-    min-height: 100vh;
+    height: 80vh;
+    min-height: unset;
     padding-top: 120px;
     padding-bottom: 5rem;
   }

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import './ProductGrid.css';
 
 // Importing assets
-import electricalImg from '../../assets/images/Brass Turned component.png';
-import defenseImg from '../../assets/images/Brass Broach component.png';
-import evPartsImg from '../../assets/images/Brass Milling component.png';
-import forgedImg from '../../assets/images/Brass Forged component.png';
-import sanitaryImg from '../../assets/images/Brass Stamping component.png';
-import customImg from '../../assets/images/brass_precision_parts.png';
-import brassImg from '../../assets/images/manufacture_items.png';
-import lpgImg from '../../assets/images/Turned Components.png';
+import electricalImg from '../../assets/images/Electrical Components.png';
+import defenseImg from '../../assets/images/Defense Components.png';
+import evPartsImg from '../../assets/images/EV Parts Components.png';
+import forgedImg from '../../assets/images/Forged & Industrial Fitting.png';
+import sanitaryImg from '../../assets/images/Sanitary & Plumbing Components.png';
+import customImg from '../../assets/images/Custom Components.png';
+import brassImg from '../../assets/images/Brass Components.png';
+import lpgImg from '../../assets/images/Gas & LPG Fitting Components.png';
 import swapIcon from '../../assets/images/tdesign_swap-right.svg';
 
 const ProductGrid = ({ addRevealRef }) => {

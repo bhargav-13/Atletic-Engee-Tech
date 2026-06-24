@@ -79,6 +79,13 @@
   color: #1e253c;
   margin-bottom: 0.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.hex-icon-circle img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .hex-title {

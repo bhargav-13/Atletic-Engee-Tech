@@ -1,14 +1,19 @@
 import React from 'react';
-import { Users, BarChart3, Timer, ClipboardCheck, Settings, FileCheck } from 'lucide-react';
+import skilledWorkforce from '../../assets/images/Skilled Workforce.png';
+import highVolume from '../../assets/images/High Volume Production.png';
+import fastTurnaround from '../../assets/images/Fast Turnaround.png';
+import qualityControl from '../../assets/images/In-house Quality Control.png';
+import precisionMfg from '../../assets/images/Precision Manufacturing.png';
+import customOem from '../../assets/images/Custom OEM Solutions.png';
 import './AboutCapabilities.css';
 
 const capabilities = [
-  { icon: <Users size={24} />, title: 'Skilled Workforce' },
-  { icon: <BarChart3 size={24} />, title: 'High Volume Production' },
-  { icon: <Timer size={24} />, title: 'Fast Turnaround' },
-  { icon: <ClipboardCheck size={24} />, title: 'In-house Quality Control' },
-  { icon: <Settings size={24} />, title: 'Precision Manufacturing' },
-  { icon: <FileCheck size={24} />, title: 'Custom OEM Solutions' },
+  { img: skilledWorkforce,  title: 'Skilled Workforce' },
+  { img: highVolume,        title: 'High Volume Production' },
+  { img: fastTurnaround,    title: 'Fast Turnaround' },
+  { img: qualityControl,    title: 'In-house Quality Control' },
+  { img: precisionMfg,      title: 'Precision Manufacturing' },
+  { img: customOem,         title: 'Custom OEM Solutions' },
 ];
 
 const AboutCapabilities = ({ addRevealRef }) => {
@@ -35,7 +40,7 @@ const AboutCapabilities = ({ addRevealRef }) => {
               >
                 <div className="hex-inner-content">
                   <div className="hex-icon-circle">
-                    {cap.icon}
+                    <img src={cap.img} alt={cap.title} />
                   </div>
                   <h4 className="hex-title">{cap.title}</h4>
                 </div>
