@@ -35,9 +35,9 @@ const ProductGrid = ({ addRevealRef }) => {
 
         <div className="product-grid">
           {products.map((item, idx) => (
-            <Link 
+            <Link
               to="/product/electric-pin"
-              key={idx} 
+              key={idx}
               className={`product-card reveal reveal-up delay-${(idx % 3) + 1} visible`}
               ref={addRevealRef}
               style={{ textDecoration: 'none', color: 'inherit' }}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import mapSvg from '../assets/images/map-base 1.svg';
 import './GlobalCTA.css';
 import MagneticButton from './MagneticButton';
@@ -43,9 +44,9 @@ const GlobalCTA = () => {
         >
           <p>Partner with us for high-quality manufacturing, consistent performance, and on-time delivery across global markets.</p>
           <MagneticButton>
-            <a href="#contact" className="btn-explore" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            <Link to="/contact" className="btn-explore" style={{ display: 'inline-block', textDecoration: 'none' }}>
               Contact Now
-            </a>
+            </Link>
           </MagneticButton>
         </motion.div>
         

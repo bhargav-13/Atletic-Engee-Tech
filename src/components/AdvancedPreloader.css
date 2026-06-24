@@ -39,6 +39,23 @@
   text-transform: uppercase;
 }
 
+
+.exit-doors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 10002;
+}
+
+.door-panel {
+  flex: 1;
+  height: 100%;
+  background-color: #0D1117;
+}
+
 .linear-loader-box {
   width: 200px;
   height: 1px;
@@ -58,28 +75,9 @@
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-.exit-doors {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: 10002;
-}
-
-.door-panel {
-  flex: 1;
-  height: 100%;
-  background-color: #0D1117;
-}
-
-.panel-left {
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 @media (max-width: 768px) {
   .linear-loader-box {
     width: 150px;
   }
 }
+

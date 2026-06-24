@@ -9,6 +9,7 @@ import About from './pages/About';
 import Quality from './pages/Quality';
 import Product from './pages/Product';
 import ProductDetail from './pages/ProductDetail';
+import Contact from './pages/Contact';
 
 // Components
 import Navbar from './components/Navbar';
@@ -16,7 +17,6 @@ import Footer from './components/Footer';
 import PageTransition from './components/PageTransition';
 import SmoothScroll from './components/SmoothScroll';
 import ScrollToTop from './components/ScrollToTop';
-import CustomCursor from './components/CustomCursor';
 import AdvancedPreloader from './components/AdvancedPreloader';
 
 const AnimatedRoutes = () => {
@@ -30,6 +30,7 @@ const AnimatedRoutes = () => {
         <Route path="/product" element={<PageTransition><Product /></PageTransition>} />
         <Route path="/product/electric-pin" element={<PageTransition><ProductDetail /></PageTransition>} />
         <Route path="/quality" element={<PageTransition><Quality /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
@@ -54,8 +55,7 @@ const App = () => {
 
       <ScrollToTop />
       <SmoothScroll>
-        <CustomCursor />
-        {!isLoading && (
+{!isLoading && (
           <motion.div
             className="app-container"
             initial={{ opacity: 0, y: 20 }}

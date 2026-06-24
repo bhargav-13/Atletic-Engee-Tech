@@ -7,17 +7,8 @@ import './Navbar.css';
 
 const Navbar = () => {
   const location = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isSpecialPage = location.pathname === '/quality' || location.pathname.startsWith('/product');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const isSpecialPage = location.pathname === '/quality' || location.pathname.startsWith('/product') || location.pathname === '/contact';
 
   // Close menu when location changes
   useEffect(() => {
@@ -32,7 +23,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled glass' : ''} ${isSpecialPage ? 'navbar-quality' : ''}`}>
+    <nav className={`navbar ${isSpecialPage ? 'navbar-quality' : ''}`}>
       <div className="navbar-logo">
         <Link to="/">
           <img src={logoImg} alt="Atletic Engee Tech Logo" />
@@ -49,17 +40,9 @@ const Navbar = () => {
             className={location.pathname === link.path ? 'active' : ''}
           >
             {link.name}
-            {location.pathname === link.path && (
-              <motion.div
-                layoutId="nav-underline"
-                className="nav-underline"
-                initial={false}
-                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-              />
-            )}
           </Link>
         ))}
-        <a href="#contact" className="nav-cta">Contact</a>
+        <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link>
       </div>
 
       <button
@@ -102,7 +85,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <a href="#contact" className="nav-cta" onClick={() => setIsMenuOpen(false)}>Contact Now</a>
+                <Link to="/contact" className="nav-cta" onClick={() => setIsMenuOpen(false)}>Contact Now</Link>
               </motion.div>
 
               <motion.div

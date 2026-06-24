@@ -6,14 +6,11 @@ const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Position of the actual cursor
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Spring settings for the follower circle
-  const springConfig = { damping: 25, stiffness: 250 };
-  const followerX = useSpring(mouseX, springConfig);
-  const followerY = useSpring(mouseY, springConfig);
+  const ringX = useSpring(mouseX, { damping: 28, stiffness: 200 });
+  const ringY = useSpring(mouseY, { damping: 28, stiffness: 200 });
 
   useEffect(() => {
     const moveCursor = (e) => {
@@ -23,22 +20,20 @@ const CustomCursor = () => {
     };
 
     const handleMouseOver = (e) => {
-      const target = e.target;
-      const isSelectable = 
-        target.tagName === 'A' || 
-        target.tagName === 'BUTTON' || 
-        target.closest('a') || 
-        target.closest('button') ||
-        target.classList.contains('perf-tab') ||
-        target.classList.contains('oval-card') ||
-        target.classList.contains('industry-card');
-      
-      setIsHovering(isSelectable);
+      const t = e.target;
+      setIsHovering(
+        t.tagName === 'A' ||
+        t.tagName === 'BUTTON' ||
+        !!t.closest('a') ||
+        !!t.closest('button') ||
+        t.classList.contains('perf-tab') ||
+        t.classList.contains('oval-card') ||
+        t.classList.contains('industry-card')
+      );
     };
 
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mouseover', handleMouseOver);
-
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
@@ -49,30 +44,24 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Main Cursor Dot */}
+      {/* Crisp dot — snaps instantly */}
       <motion.div
         className="cursor-dot"
-        style={{
-          x: mouseX,
-          y: mouseY,
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
+        style={{ x: mouseX, y: mouseY, translateX: '-50%', translateY: '-50%' }}
+        animate={{ scale: isHovering ? 0 : 1 }}
+        transition={{ duration: 0.15 }}
       />
 
-      {/* Follower Circle */}
+      {/* Trailing ring — lags slightly, expands on hover */}
       <motion.div
-        className="cursor-follower"
+        className="cursor-ring"
+        style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%' }}
         animate={{
-          scale: isHovering ? 2 : 1,
-          opacity: isHovering ? 0.3 : 1,
+          scale: isHovering ? 1.6 : 1,
+          opacity: isHovering ? 0.5 : 0.7,
+          borderWidth: isHovering ? '1px' : '1.5px',
         }}
-        style={{
-          x: followerX,
-          y: followerY,
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       />
     </>
   );

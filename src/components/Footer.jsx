@@ -23,7 +23,7 @@ const Footer = () => {
                 <li><Link to="/about">About</Link></li>
                 <li><a href="#categories">Categories</a></li>
                 <li><Link to="/product">Product</Link></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><Link to="/contact">Contact</Link></li>
               </ul>
             </div>
             <div className="footer-col">
