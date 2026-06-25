@@ -25,22 +25,22 @@
 
 @media (min-width: 993px) {
   .gallery-column {
-    flex: 0 0 410px;
+    flex: 0 0 450px;
   }
 }
 
 .main-image-box {
   width: 100%;
-  aspect-ratio: 16/14;
+  aspect-ratio: 4/3;
   height: auto;
-  min-height: 300px;
+  min-height: 420px;
   border: 1px solid #222222;
   border-radius: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  background: #ffffff;
+  background: #F4F8FF;
 }
 
 .main-image-box img {
@@ -73,9 +73,8 @@
   border: 1px solid #222222;
   border-radius: 0px;
   cursor: pointer;
-  padding: 0.25rem;
   transition: all 0.25s ease;
-  background: #ffffff;
+  background: #F4F8FF;
 }
 
 .thumb-box img {
@@ -101,16 +100,16 @@
   display: inline-block;
   align-self: flex-start;
   width: fit-content;
-  background: #FFE5DD;
-  color: #FF5C35;
+  background: #FFDBCF;
+  color: #FB6017;
   padding: 0.4rem 0.8rem;
   border-radius: 0px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   font-family: var(--body-font);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   margin-top: 2rem;
 }
 
@@ -119,22 +118,23 @@
   font-size: clamp(3.5rem, 6vw, 5.2rem);
   color: #001731;
   font-weight: 800;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .product-detail-desc {
   font-family: var(--body-font);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #43474E;
   line-height: 1.6;
   margin-bottom: 4rem;
+  font-weight: 300;
 }
 
 .info-footer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 1.5rem;
   margin-top: auto;
 }
@@ -142,12 +142,12 @@
 .footer-line {
   width: 50px;
   height: 1px;
-  background: #C4CAD6;
+  background: #C4C6CF;
 }
 
 .metadata {
   font-family: var(--body-font);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: #74777F;
   letter-spacing: 0.1em;
   text-transform: uppercase;

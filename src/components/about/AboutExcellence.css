@@ -92,6 +92,18 @@
   justify-content: center;
 }
 
+.excellence-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.wide-icon-circle .excellence-icon-img {
+  width: 32px;
+  height: 32px;
+}
+
 .card-title {
   font-family: var(--body-font);
   font-weight: 700;

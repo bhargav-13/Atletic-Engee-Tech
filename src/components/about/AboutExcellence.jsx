@@ -1,5 +1,7 @@
 import React from 'react';
-import { Target, Layers, Factory } from 'lucide-react';
+import highPrecisionIcon from '../../assets/images/High Precision.png';
+import scalableProductionIcon from '../../assets/images/Scalable Production.png';
+import globalStandardsIcon from '../../assets/images/Global Standards.png';
 import './AboutExcellence.css';
 
 const AboutExcellence = ({ addRevealRef }) => {
@@ -21,7 +23,7 @@ const AboutExcellence = ({ addRevealRef }) => {
             {/* High Precision Card */}
             <div className="excellence-card-item card-light reveal reveal-up delay-1" ref={addRevealRef}>
               <div className="icon-box-dark">
-                <Target size={24} />
+                <img src={highPrecisionIcon} alt="High Precision" className="excellence-icon-img" />
               </div>
               <h3 className="card-title">HIGH PRECISION</h3>
               <p className="card-desc">Unrivaled accuracy for complex aerospace components.</p>
@@ -34,7 +36,7 @@ const AboutExcellence = ({ addRevealRef }) => {
             {/* Scalable Production Card */}
             <div className="excellence-card-item card-dark reveal reveal-up delay-2" ref={addRevealRef}>
               <div className="icon-box-outline">
-                <Layers size={24} />
+                <img src={scalableProductionIcon} alt="Scalable Production" className="excellence-icon-img" />
               </div>
               <h3 className="card-title">SCALABLE PRODUCTION</h3>
               <p className="card-desc">From prototypes to mass manufacturing, we adapt to your mission scale.</p>
@@ -43,7 +45,7 @@ const AboutExcellence = ({ addRevealRef }) => {
             {/* Bottom Card (Wide) */}
             <div className="excellence-card-wide reveal reveal-up delay-3" ref={addRevealRef}>
               <div className="wide-icon-circle">
-                <Factory size={28} />
+                <img src={globalStandardsIcon} alt="Global Standards" className="excellence-icon-img" />
               </div>
               <div className="wide-content">
                 <h3 className="card-title">GLOBAL STANDARDS</h3>

@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import './DetailHero.css';
 
 const DetailHero = ({ product, addRevealRef }) => {
-  const [activeImg, setActiveImg] = useState(product.mainImage);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   return (
     <section className="detail-hero-section">
       <div className="detail-container">
         <div className="gallery-column reveal reveal-left" ref={addRevealRef}>
           <div className="main-image-box">
-            <img src={activeImg} alt={product.title} />
+            <img src={product.gallery[activeIdx]} alt={product.title} />
           </div>
           <div className="thumbnail-row">
             {product.gallery.map((img, idx) => (
               <div
                 key={idx}
-                className={`thumb-box ${activeImg === img ? 'active' : ''}`}
-                onClick={() => setActiveImg(img)}
+                className={`thumb-box ${activeIdx === idx ? 'active' : ''}`}
+                onClick={() => setActiveIdx(idx)}
               >
                 <img src={img} alt={`Thumbnail ${idx}`} />
               </div>

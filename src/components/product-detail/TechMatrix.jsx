@@ -6,6 +6,7 @@ const TechMatrix = ({ specs, addRevealRef }) => {
     <section className="tech-matrix-section">
       <div className="matrix-header">
         <h2 className="matrix-heading">Technical Matrix</h2>
+        <span className="spec-sheet-version">SPEC SHEET V4.02</span>
       </div>
       <div className="matrix-grid">
         {specs.map((spec, idx) => (

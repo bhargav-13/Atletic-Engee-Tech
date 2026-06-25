@@ -9,11 +9,13 @@ import RelatedProducts from '../components/product-detail/RelatedProducts';
 
 // Assets
 import electricPinImg from '../assets/images/electric_pin_component.png';
-import thumb1 from '../assets/images/Caliper.png';
-import thumb2 from '../assets/images/Brass Turned component.png';
-import related1 from '../assets/images/ISO 90012015 Certified Facility 3.png';
-import related2 from '../assets/images/ISO 90012015 Certified Facility 2.png';
-import related3 from '../assets/images/ChatGPT Image Mar 28, 2026, 01_17_03 AM 1.png';
+import gasLpgImg from '../assets/images/Gas & LPG Fitting Components.png';
+// TODO: Replace these with product_sub_image-1.png and product_sub_image-2.png once added to src/assets/images/
+import subImg1 from '../assets/images/product_sub_image-1.png';
+import subImg2 from '../assets/images/product_sub_image-2.png';
+import related1 from '../assets/images/Electrical Components.png';
+import related2 from '../assets/images/Defense Components.png';
+import related3 from '../assets/images/EV Parts Components.png';
 
 // Icons
 import icon1 from '../assets/images/Icon.svg';
@@ -37,7 +39,7 @@ const ProductDetail = () => {
     description: "The Monolith series electrical pin represents the zenith of Swiss-turning capability. Engineered for zero-fail environments where conductivity and structural integrity are non-negotiable.",
     sector: "AEROSPACE & DEFENCE",
     mainImage: electricPinImg,
-    gallery: [electricPinImg, thumb1, thumb2, related1],
+    gallery: [gasLpgImg, subImg1, subImg1, subImg2],
     specs: [
       { id: "01", icon: icon1, label: "Tolerance", value: "+/ -0.005mm" },
       { id: "02", icon: icon2, label: "Finish", value: "Gold Plating" },
