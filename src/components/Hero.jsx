@@ -1,16 +1,28 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import heroImagePng from '../assets/images/hero_image.png';
 import './Hero.css';
 import MagneticButton from './MagneticButton';
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const rawY = useTransform(scrollY, [0, 800], ['0%', '18%']);
+  const rawScale = useTransform(scrollY, [0, 800], [1, 1.07]);
+  const bgY = useSpring(rawY, { stiffness: 60, damping: 20, mass: 0.4 });
+  const bgScale = useSpring(rawScale, { stiffness: 60, damping: 20, mass: 0.4 });
+
   return (
-    <section
-      className="hero-new"
-      id="home"
-      style={{ '--hero-bg-image': `url(${heroImagePng})` }}
-    >
+    <section className="hero-new" id="home">
+      {/* Parallax background layer */}
+      <motion.div
+        className="hero-bg"
+        style={{
+          backgroundImage: `url(${heroImagePng})`,
+          y: bgY,
+          scale: bgScale,
+        }}
+      />
+
       <div className="hero-content-wrap">
         {/* Badge */}
         <motion.div

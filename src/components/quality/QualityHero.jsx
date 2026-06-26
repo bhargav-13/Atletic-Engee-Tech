@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './QualityHero.css';
+import { E } from '../../lib/animations';
 
 const QualityHero = () => {
   return (
@@ -7,18 +9,47 @@ const QualityHero = () => {
       <div className="container">
         <div className="quality-hero-layout">
           <div className="quality-hero-text">
-            <span className="hero-top-label">METROLOGY STANDARDS</span>
-            <h1 className="quality-hero-main-title">Precision Instrumentation Hub</h1>
-            <p className="quality-hero-desc">
+            <motion.span
+              className="hero-top-label"
+              initial={{ opacity: 0, x: -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: E }}
+            >
+              METROLOGY STANDARDS
+            </motion.span>
+
+            <div style={{ overflow: 'hidden' }}>
+              <motion.h1
+                className="quality-hero-main-title"
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.1, ease: E }}
+              >
+                Precision Instrumentation Hub
+              </motion.h1>
+            </div>
+
+            <motion.p
+              className="quality-hero-desc"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: E }}
+            >
               Every component is machined at Precision. Metrology protocols are
               rigorous with a clean, high-precision environment of high-tolerance
               instruments. Robust, cost-engineering optics.
-            </p>
+            </motion.p>
           </div>
-          <div className="quality-hero-stat">
+
+          <motion.div
+            className="quality-hero-stat"
+            initial={{ opacity: 0, x: 40, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.25, ease: E }}
+          >
             <div className="accuracy-label">±0.001mm</div>
             <div className="accuracy-sub">BASELINE ACCURACY THRESHOLD</div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

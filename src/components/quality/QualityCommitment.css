@@ -70,7 +70,6 @@
   position: absolute;
   right: 17%;
   top: 40%;
-  transform: translateY(-50%);
   font-family: var(--body-font);
   font-size: 35rem;
   font-weight: 800;
@@ -190,7 +189,6 @@
 }
 
 .performance-card:hover {
-  transform: translateY(-10px);
   background: #ffffff;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }

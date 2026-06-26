@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './MetrologyGrid.css';
 import plugGuageImg from '../../assets/images/Plug Guage.png';
 import roughnessTesterImg from '../../assets/images/Roughness Tester.png';
@@ -64,7 +65,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
       <div className="container">
         <div className="instruments-grid">
           {instruments.map((item, idx) => (
-            <div key={idx} className="instrument-card reveal reveal-up" ref={addRevealRef}>
+            <motion.div key={idx} className="instrument-card reveal reveal-up" ref={addRevealRef} whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
               <div className="card-image-box">
                 <img src={item.image} alt={item.title} className="card-img" />
               </div>
@@ -81,7 +82,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

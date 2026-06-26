@@ -22,23 +22,21 @@ const Quality = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 20 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
+    hidden: { opacity: 0, y: 36, scale: 0.97 },
+    visible: {
+      opacity: 1, y: 0, scale: 1,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   return (
     <section className="section quality-section" id="quality-trust">
-      <motion.div 
+      <motion.div
         className="quality-header"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 44, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="quality-header-title">
           <h2>Built for Consistent Performance</h2>
@@ -63,7 +61,9 @@ const Quality = () => {
             key={i} 
             className="quality-card"
             variants={cardVariants}
-            whileHover={{ y: -5, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+            whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="quality-icon">
               <img src={precisionIcon} alt="Quality Icon" style={{ width: '18px', height: '18px' }} />

@@ -1,4 +1,4 @@
-/* --- METROLOGY GRID --- */
+﻿/* --- METROLOGY GRID --- */
 .metrology-grid-section {
   padding: 5rem 10.5%;
   background: #F4F8FF;
@@ -21,7 +21,6 @@
 }
 
 .instrument-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
   border-color: #cbd5e0;
   background: #F2F4F5;

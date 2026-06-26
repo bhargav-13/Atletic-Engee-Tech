@@ -67,7 +67,6 @@
 }
 
 .quality-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(31, 37, 66, 0.08);
 }
 

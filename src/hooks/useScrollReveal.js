@@ -63,13 +63,14 @@ const useScrollReveal = () => {
           x: 0,
           y: 0,
           scale: 1,
-          duration: 1,
+          duration: 1.1,
           delay: delayFor(el),
-          ease: 'power3.out',
+          ease: 'expo.out',
           overwrite: 'auto',
+          onComplete: () => gsap.set(el, { clearProps: 'transform' }),
           scrollTrigger: {
             trigger: el,
-            start: 'top 88%',
+            start: 'top 85%',
             once: true,
           },
         }

@@ -18,13 +18,7 @@ const industries = [
   { title: 'AUTOMOTIVE', description: 'Precision-engineered brass components designed for automotive systems, ensuring durability, efficiency, and consistent performance across demanding vehicle applications.', icon: automotiveIcon },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+const E = [0.22, 1, 0.36, 1];
 
 const IndustryServe = () => (
   <section className="section industry-section" id="industries">
@@ -32,10 +26,10 @@ const IndustryServe = () => (
 
       <motion.div
         className="industry-header-flex"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 32, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.9, ease: E }}
       >
         <div className="header-left">
           <h2>Industries We Power</h2>
@@ -55,11 +49,11 @@ const IndustryServe = () => (
           <motion.div
             key={industry.title}
             className="industry-card"
-            custom={i}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.4, delay: i * 0.05, ease: E }}
+            whileHover={{ y: -6, boxShadow: '0 20px 44px rgba(0,0,0,0.12)', transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] } }}
           >
             <div className="card-bar" />
             <div className="card-body">

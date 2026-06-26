@@ -2,18 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import mapSvg from '../assets/images/map-base 1.svg';
+import { E, fadeUp, fadeLeft, scaleIn, stagger, staggerItem } from '../lib/animations';
 import './GlobalCTA.css';
 import MagneticButton from './MagneticButton';
 
 const GlobalCTA = () => {
   return (
     <section className="section global-cta-section" id="contact-map">
-      <motion.div 
+      <motion.div
         className="global-cta-header comp-header"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        {...fadeUp(0)}
       >
         <div className="comp-title">
           <h2>Serving Global Markets</h2>
@@ -24,23 +22,17 @@ const GlobalCTA = () => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="global-map-container"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.2 }}
+        {...scaleIn(0.15)}
       >
         <img src={mapSvg} alt="Global Operations Map" className="world-map-img" />
       </motion.div>
 
       <div className="global-cta-footer">
-        <motion.div 
+        <motion.div
           className="global-cta-text"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          {...fadeLeft(0.1)}
         >
           <p>Partner with us for high-quality manufacturing, consistent performance, and on-time delivery across global markets.</p>
           <MagneticButton>
@@ -49,22 +41,31 @@ const GlobalCTA = () => {
             </Link>
           </MagneticButton>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="global-flags"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          variants={stagger(0.07, 0.3)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
         >
-          <img src="https://flagcdn.com/w320/us.png" alt="USA" />
-          <img src="https://flagcdn.com/w320/de.png" alt="Germany" />
-          <img src="https://flagcdn.com/w320/pe.png" alt="Peru" />
-          <img src="https://flagcdn.com/w320/br.png" alt="Brazil" />
-          <img src="https://flagcdn.com/w320/il.png" alt="Israel" />
-          <img src="https://flagcdn.com/w320/es.png" alt="Spain" />
-          <img src="https://flagcdn.com/w320/it.png" alt="Italy" />
-          <div className="flag-placeholder"></div>
+          {[
+            { src: 'https://flagcdn.com/w320/us.png', alt: 'USA' },
+            { src: 'https://flagcdn.com/w320/de.png', alt: 'Germany' },
+            { src: 'https://flagcdn.com/w320/pe.png', alt: 'Peru' },
+            { src: 'https://flagcdn.com/w320/br.png', alt: 'Brazil' },
+            { src: 'https://flagcdn.com/w320/il.png', alt: 'Israel' },
+            { src: 'https://flagcdn.com/w320/es.png', alt: 'Spain' },
+            { src: 'https://flagcdn.com/w320/it.png', alt: 'Italy' },
+          ].map((flag) => (
+            <motion.img
+              key={flag.alt}
+              src={flag.src}
+              alt={flag.alt}
+              variants={staggerItem}
+            />
+          ))}
+          <motion.div className="flag-placeholder" variants={staggerItem} />
         </motion.div>
       </div>
     </section>

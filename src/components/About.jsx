@@ -3,25 +3,27 @@ import { motion } from 'framer-motion';
 import aboutImg1 from '../assets/images/ffbb99c0295e61db0012aa5bd09398178b27f818.jpg';
 import aboutImg2 from '../assets/images/6f15857a5bb666551cc51a2a7434e9ea6ee82c6c.jpg';
 import AnimatedCounter from './AnimatedCounter';
+import useParallax from '../hooks/useParallax';
 import './About.css';
 
 const About = () => {
+  const addParallax = useParallax(14);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.05 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    hidden: { opacity: 0, y: 36, scale: 0.97 },
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+      scale: 1,
+      transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -53,18 +55,22 @@ const About = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <img src={aboutImg1} alt="Brass Components" className="about-img-top" />
-          <img src={aboutImg2} alt="Manufacturing Plant" className="about-img-bottom" />
+          <div style={{ overflow: 'hidden', borderRadius: 'inherit' }}>
+            <img src={aboutImg1} alt="Brass Components" className="about-img-top" ref={addParallax} />
+          </div>
+          <div style={{ overflow: 'hidden', borderRadius: 'inherit' }}>
+            <img src={aboutImg2} alt="Manufacturing Plant" className="about-img-bottom" ref={addParallax} />
+          </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="about-text-content"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 50, scale: 0.97 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="about-desc">
             Specializing in precision-engineered brass components, we support industries where accuracy, durability, and performance are non-negotiable. Our expertise spans defense-grade components, EV parts, and industrial fasteners, manufactured using advanced CNC technology and high-quality raw materials.

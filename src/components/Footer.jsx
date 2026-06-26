@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowUp, Heart } from 'lucide-react';
 import footerLogo from '../assets/images/Atletic logo bg remove 2.svg';
+import { E, stagger, staggerItem } from '../lib/animations';
 import './Footer.css';
 
 const Footer = () => {
@@ -10,13 +12,25 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <motion.footer
+      className="footer"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.9, ease: E }}
+    >
       <div className="footer-container">
         <div className="footer-grid">
-          
+
           {/* ROW 1: Navigation & Info */}
-          <div className="footer-nav-group footer-group-1-nav">
-            <div className="footer-col">
+          <motion.div
+            className="footer-nav-group footer-group-1-nav"
+            variants={stagger(0.06)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div className="footer-col" variants={staggerItem}>
               <h4>PAGES</h4>
               <ul>
                 <li><Link to="/">Home</Link></li>
@@ -25,8 +39,8 @@ const Footer = () => {
                 <li><Link to="/product">Product</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
               </ul>
-            </div>
-            <div className="footer-col">
+            </motion.div>
+            <motion.div className="footer-col" variants={staggerItem}>
               <h4>INDUSTRY</h4>
               <ul>
                 <li><a href="#defence">Defence</a></li>
@@ -35,11 +49,17 @@ const Footer = () => {
                 <li><a href="#automotive">Automotive</a></li>
                 <li><a href="#electrical">Electrical</a></li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="footer-nav-group footer-group-2-nav">
-            <div className="footer-col" style={{marginLeft: '2rem'}}>
+          <motion.div
+            className="footer-nav-group footer-group-2-nav"
+            variants={stagger(0.06)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div className="footer-col" style={{marginLeft: '2rem'}} variants={staggerItem}>
               <h4>ATLETIC</h4>
               <ul>
                 <li><a href="#certificates">Certificates</a></li>
@@ -47,8 +67,8 @@ const Footer = () => {
                 <li><a href="#export">Export</a></li>
                 <li><a href="#process">Process</a></li>
               </ul>
-            </div>
-            <div className="footer-col">
+            </motion.div>
+            <motion.div className="footer-col" variants={staggerItem}>
               <h4>PRODUCTS</h4>
               <ul>
                 <li><a href="#brass-turned">Brass Turned Component</a></li>
@@ -57,15 +77,21 @@ const Footer = () => {
                 <li><a href="#brass-broach">Brass Broach Component</a></li>
                 <li><a href="#brass-stamping">Brass Stamping Component</a></li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="footer-info-group">
+          <motion.div
+            className="footer-info-group"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15, ease: E }}
+          >
             <img src={footerLogo} alt="Atletic Logo" className="footer-logo" />
             <div className="logo-divider"></div>
             <p className="footer-contact">+91 98245 83526</p>
             <p className="footer-email">info@atleticengeetech</p>
-          </div>
+          </motion.div>
 
           {/* ROW 2: Social */}
           <div className="footer-social-group footer-group-1-social">
@@ -106,7 +132,7 @@ const Footer = () => {
 
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

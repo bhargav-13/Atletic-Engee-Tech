@@ -69,10 +69,9 @@ const ComponentsOval = () => {
               key={product.id}
               className="oval-card"
               variants={cardVariants}
-              whileHover={{
-                y: -10,
-                transition: { duration: 0.3 }
-              }}
+              whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="oval-card-header">
                 <span className="oval-ring"></span>

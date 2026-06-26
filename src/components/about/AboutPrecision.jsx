@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Shield, BatteryCharging, Globe } from 'lucide-react';
 import './AboutPrecision.css';
 
@@ -37,15 +38,18 @@ const AboutPrecision = ({ addRevealRef }) => {
         <div className="about-precision-right">
           <div className="precision-cards-row">
             {industryFocus.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
                 className={`industry-focus-card reveal reveal-up delay-${i + 1}`}
                 ref={addRevealRef}
+                whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="focus-card-icon">{item.icon}</div>
                 <h3 className="focus-card-title">{item.title}</h3>
                 <p className="focus-card-desc">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

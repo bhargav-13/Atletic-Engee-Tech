@@ -4,13 +4,10 @@ import { motion } from 'framer-motion';
 const PageTransition = ({ children }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -15 }}
-      transition={{ 
-        duration: 0.5, 
-        ease: [0.22, 1, 0.36, 1] // Custom cubic-bezier for a more "premium" feel
-      }}
+      initial={{ opacity: 0, y: 28, filter: 'blur(8px)', scale: 0.98 }}
+      animate={{ opacity: 1, y: 0,  filter: 'blur(0px)', scale: 1 }}
+      exit={{    opacity: 0, y: -16, filter: 'blur(6px)', scale: 0.99 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

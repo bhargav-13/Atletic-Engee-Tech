@@ -11,16 +11,15 @@
   box-sizing: border-box;
 }
 
-/* Background image layer */
-.hero-new::before {
-  content: '';
+/* Parallax background layer — sized larger than viewport so it can travel */
+.hero-bg {
   position: absolute;
-  inset: 0;
-  background-image: var(--hero-bg-image);
+  inset: -12%;
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
   z-index: 0;
+  will-change: transform;
 }
 
 /* Dark navy gradient overlay â€” dense on left, fades right */

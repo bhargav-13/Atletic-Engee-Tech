@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './QualityCommitment.css';
 
 const QualityCommitment = ({ addRevealRef }) => {
@@ -86,11 +87,11 @@ const QualityCommitment = ({ addRevealRef }) => {
               { num: '03', title: 'Surface Metrology', desc: 'Sub-micron laser scanning to verify geometric tolerances.' },
               { num: '04', title: 'Batch Lock-Down', desc: 'Final stress testing and serialization for full traceability.' }
             ].map((card, idx) => (
-              <div key={idx} className="performance-card reveal reveal-up" ref={addRevealRef}>
+              <motion.div key={idx} className="performance-card reveal reveal-up" ref={addRevealRef} whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
                 <span className="perf-card-num">{card.num}</span>
                 <h4 className="perf-card-title">{card.title}</h4>
                 <p className="perf-card-desc">{card.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

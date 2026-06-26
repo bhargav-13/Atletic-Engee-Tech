@@ -8,7 +8,6 @@ import Performance from '../components/Performance';
 import ComponentsOval from '../components/ComponentsOval';
 import Quality from '../components/Quality';
 import GlobalCTA from '../components/GlobalCTA';
-
 const Home = () => {
   return (
     <>

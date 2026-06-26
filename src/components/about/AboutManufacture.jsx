@@ -1,6 +1,10 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Layers } from 'lucide-react';
 import './AboutManufacture.css';
+import useParallax from '../../hooks/useParallax';
+
+const E = [0.22, 1, 0.36, 1];
 import componentsImg from '../../assets/images/Screenshot 2026-04-07 at 3.12.51 PM 1.png';
 import brassImg from '../../assets/images/Screenshot 2026-04-07 at 2.48.08 PM 1.png';
 import aluminiumImg from '../../assets/images/Screenshot 2026-04-07 at 2.48.08 PM 5.png';
@@ -9,6 +13,7 @@ import copperImg from '../../assets/images/Screenshot 2026-04-07 at 2.48.08 PM
 import mildSteelImg from '../../assets/images/Screenshot 2026-04-07 at 2.48.08 PM 2.png';
 
 const AboutManufacture = ({ addRevealRef }) => {
+  const addParallax = useParallax(16);
   const categories = [
     'Brass Bushings',
     'Cable Glands',
@@ -51,7 +56,16 @@ const AboutManufacture = ({ addRevealRef }) => {
             </div>
             <ul className="categories-list">
               {categories.map((cat, idx) => (
-                <li key={idx} className="list-item">{cat}</li>
+                <motion.li
+                  key={idx}
+                  className="list-item"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + idx * 0.07, ease: E }}
+                >
+                  {cat}
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -59,8 +73,8 @@ const AboutManufacture = ({ addRevealRef }) => {
           {/* Center Image */}
           <div className="manufacture-center reveal reveal-up" ref={addRevealRef}>
             <div className="center-image-orbit">
-              <div className="center-image-container">
-                <img src={componentsImg} alt="Manufactured Components" />
+              <div className="center-image-container" style={{ overflow: 'hidden' }}>
+                <img src={componentsImg} alt="Manufactured Components" ref={addParallax} />
               </div>
               <div className="orbit-dot dot-left"></div>
               <div className="orbit-dot dot-right"></div>
@@ -83,12 +97,19 @@ const AboutManufacture = ({ addRevealRef }) => {
             </div>
             <ul className="materials-list">
               {materials.map((mat, idx) => (
-                <li key={idx} className="list-item material-item">
+                <motion.li
+                  key={idx}
+                  className="list-item material-item"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 + idx * 0.07, ease: E }}
+                >
                   <div className="material-swatch">
                     <img src={mat.img} alt={mat.name} className="swatch-img" />
                   </div>
                   <span className="material-name">{mat.name}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
