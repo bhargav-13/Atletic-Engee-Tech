@@ -167,3 +167,19 @@
   }
 
   .quality-hero .container {
+    padding: 0 5%;
+  }
+
+  .quality-hero-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .quality-hero-stat {
+    text-align: left;
+  }
+
+  .quality-hero-main-title {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+}

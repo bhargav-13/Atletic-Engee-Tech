@@ -130,6 +130,11 @@
     font-size: 0.7rem;
     margin-bottom: 1.5rem;
   }
+
+  .hero-content-wrap {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 /* --- OVERRIDE GLOBAL BUTTON FOR DARK HERO --- */
@@ -140,4 +145,11 @@
 
 .hero-content-wrap .btn-explore:hover::after {
   background: #ffffff;
+}
+
+@media (max-width: 1400px) {
+  .hero-content-wrap {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
