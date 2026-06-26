@@ -1,10 +1,10 @@
-.components-oval-section {
+﻿.components-oval-section {
   padding: 5rem 10.5%;
   background: #F4F8FF;
 }
 
 .components-oval-content {
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: 0 auto;
 }
 
@@ -18,30 +18,29 @@
 .oval-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  /* Tighter gap matching the image */
+  gap: 1.25rem;
   row-gap: 1.5rem;
 }
 
 .oval-card {
-  background: #F4F8FF;
-  border: 2px solid #D1D5DB;
-  /* Slightly more visible border matching the image's grey line */
-  border-radius: 4px;
-  /* Sharper corners as seen in the image */
+  border: 1.3px solid transparent;
+  background:
+    linear-gradient(#F4F8FF, #F4F8FF) padding-box,
+    linear-gradient(108.81deg, #676C86 1.03%, #C0C0C0 100.93%) border-box;
+  border-radius: 10px;
   padding: 1.5rem;
-  /* Reduced padding */
   display: flex;
   flex-direction: column;
   position: relative;
   transition: all 0.3s ease;
   min-height: 400px;
-  /* Reduced min-height to match proportions */
 }
 
 .oval-card:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  border-color: #9CA3AF;
+  background:
+    linear-gradient(#F4F8FF, #F4F8FF) padding-box,
+    linear-gradient(108.81deg, #676C86 1.03%, #9CA3AF 100.93%) border-box;
 }
 
 .oval-card-header {
@@ -75,8 +74,8 @@
 }
 
 .oval-card-img img {
-  max-width: 70%;
   max-height: 290px;
+  max-width: 70%;
   object-fit: contain;
 }
 

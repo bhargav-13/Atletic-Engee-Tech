@@ -1,4 +1,4 @@
-/* --- QUALITY COMMITMENT WRAPPER --- */
+﻿/* --- QUALITY COMMITMENT WRAPPER --- */
 .quality-commitment-wrapper {
   background: #F4F8FF;
 }
@@ -68,8 +68,8 @@
 
 .zero-watermark {
   position: absolute;
-  right: 10%;
-  top: 26%;
+  right: 17%;
+  top: 40%;
   transform: translateY(-50%);
   font-family: var(--body-font);
   font-size: 35rem;

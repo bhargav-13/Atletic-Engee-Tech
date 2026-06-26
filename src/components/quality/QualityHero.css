@@ -1,4 +1,4 @@
-/* --- QUALITY HERO --- */
+﻿/* --- QUALITY HERO --- */
 .quality-hero {
   padding: 10rem 0 5rem;
   background: #F4F8FF;
@@ -153,17 +153,17 @@
   }
 }
 
-@media (max-width: 768px) {
-  .quality-hero {
-    height: 70vh;
-    padding-top: 100px;
-  }
-
+@media (max-width: 1400px) {
   .quality-hero .container {
     padding: 0 5%;
   }
-
-  .quality-hero-title {
-    font-size: 3rem;
-  }
 }
+
+@media (max-width: 768px) {
+  .quality-hero {
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .quality-hero .container {

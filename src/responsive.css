@@ -1,4 +1,4 @@
-/* --- GLOBAL RESPONSIVE OVERRIDES --- */
+﻿/* --- GLOBAL RESPONSIVE OVERRIDES --- */
 
 /* ============================================================
    0. GLOBAL SAFETY NET
@@ -24,68 +24,62 @@ video {
   height: auto;
 }
 
-/* Uniform section padding for every top-level wrapper, even the ones
-   that don't share the .section class (each defines its own X padding). */
-@media (max-width: 768px) {
-
-  .global-cta-section,
-  .tech-matrix-section,
-  .engineered-specs-section,
-  .perf-section,
-  .reliability-banner,
-  .related-products-section {
-    padding-left: 6% !important;
-    padding-right: 6% !important;
-  }
-}
-
 /* ============================================================
    1. UNIFORM SECTION PADDING
+   Horizontal scale (matches navbar):
+     > 1400px  â†’ 10.5%   (defined per-section)
+     â‰¤ 1400px  â†’ 5%
+     â‰¤ 768px   â†’ 6%
+   Vertical scale (all non-hero sections):
+     desktop   â†’ 5rem
+     â‰¤ 768px   â†’ 4rem
+   First sections on each page (hero / product-grid) are excluded
+   so they keep their navbar-clearance top padding.
    ============================================================ */
+
+/* Vertical padding â€” desktop */
+.section,
+[class*="-section"]:not([class*="hero"]):not(.about-manufacture-section):not(.product-grid-section) {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
 @media (max-width: 1400px) {
 
   .section,
-  .container {
+  .container,
+  .quality-hero .container,
+  [class*="-section"]:not(.about-manufacture-section) {
     padding-left: 5% !important;
     padding-right: 5% !important;
   }
 }
 
-/* Content sections only — the navbar and footer manage their own vertical
-   rhythm (the old rule forced a broken 5rem top/bottom onto the nav bar,
-   making it ~196px tall on phones). */
 @media (max-width: 768px) {
 
-  /* Unify horizontal padding to a tight 5% across every content section so
-     none of them sit with the oversized desktop 10.5% inset. Hero sections
-     and the full-bleed manufacture band keep their own (intentional) edges. */
   .section,
   .container,
-  [class*="-section"]:not([class*="hero"]):not(.about-manufacture-section) {
-    padding-left: 5% !important;
-    padding-right: 5% !important;
+  .quality-hero .container,
+  [class*="-section"]:not(.about-manufacture-section) {
+    padding-left: 6% !important;
+    padding-right: 6% !important;
   }
 
-  /* Trim the generous desktop vertical rhythm (was 5rem/80px) down for
-     mobile. Covers the shared .section class plus every standalone
-     "*-section" wrapper, but skips hero sections — they need their large
-     top padding to clear the fixed navbar. */
+  /* Trim vertical rhythm on mobile for non-hero sections. */
   .section,
   [class*="-section"]:not([class*="hero"]) {
     padding-top: 4rem !important;
     padding-bottom: 4rem !important;
   }
 
-  /* The Product page's first section still needs to clear the navbar. */
-  .product-grid-section {
-    padding-top: 5.5rem !important;
+  [class*="-section"]:not([class*="hero"]):not(.about-manufacture-section):not(.product-grid-section) {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
   }
 
-  /* The product detail hero pads the section itself (not an inner wrap),
-     so it's safe to tighten its side padding too. */
-  .detail-hero-section {
-    padding-left: 5% !important;
-    padding-right: 5% !important;
+  /* Product grid needs extra top clearance for the fixed navbar. */
+  .product-grid-section {
+    padding-top: 8rem !important;
   }
 }
 
@@ -115,7 +109,6 @@ video {
   .header-right p,
   .comp-desc p {
     font-size: 1.1rem !important;
-    max-width: 100% !important;
   }
 }
 
@@ -128,6 +121,8 @@ video {
   .instruments-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
+  max-width: 100% !important;
 }
 
 @media (max-width: 768px) {
@@ -154,10 +149,10 @@ video {
     width: auto !important;
   }
 
-  .instrument-title,
+  /* .instrument-title,
   .product-title {
     font-size: 1.25rem !important;
-  }
+  } */
 }
 
 /* Performance Tabs */
@@ -192,6 +187,14 @@ video {
   .hero-body-text {
     font-size: 1.15rem !important;
     margin-bottom: 2rem !important;
+  }
+
+  product-grid-section {
+    padding-top: 8rem !important;
+  }
+
+  .product-card-header {
+    padding: 0;
   }
 }
 
@@ -250,11 +253,6 @@ video {
 }
 
 @media (max-width: 600px) {
-  .quality-hero {
-    padding-top: 140px !important;
-    height: auto !important;
-    padding-bottom: 6rem !important;
-  }
 
   .quality-hero-main-title {
     font-size: 3rem !important;
@@ -312,7 +310,7 @@ video {
 }
 
 /* ============================================================
-   HERO — stop the animated heading spans from forcing a single
+   HERO â€” stop the animated heading spans from forcing a single
    line on phones (the inline white-space:nowrap would overflow).
    ============================================================ */
 @media (max-width: 768px) {
@@ -384,10 +382,6 @@ video {
     font-size: 1.2rem !important;
   }
 
-  .global-flags {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
   /* Comfortable tap targets on the smallest screens. */
   .btn-explore,
   .nav-cta {
@@ -397,7 +391,7 @@ video {
 }
 
 /* ============================================================
-   TOUCH TARGETS — ensure interactive elements meet ~44px.
+   TOUCH TARGETS â€” ensure interactive elements meet ~44px.
    ============================================================ */
 @media (hover: none) and (pointer: coarse) {
 
@@ -410,7 +404,7 @@ video {
 }
 
 /* ============================================================
-   ACCESSIBILITY — honour reduced-motion at the CSS layer too
+   ACCESSIBILITY â€” honour reduced-motion at the CSS layer too
    (GSAP/Framer are handled in JS; this covers CSS transitions).
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -431,7 +425,7 @@ video {
 }
 
 /* ============================================================
-   NAVBAR — mobile refinements
+   NAVBAR â€” mobile refinements
    (The bloated-height bug is fixed by removing .navbar from the
    section-padding rule above; this just polishes the small-screen
    logo so it never crowds the hamburger.)
@@ -492,7 +486,7 @@ video {
 }
 
 /* ============================================================
-   FOOTER — mobile refinements
+   FOOTER â€” mobile refinements
    ============================================================ */
 @media (max-width: 768px) {
 
@@ -543,7 +537,7 @@ video {
 
 @media (max-width: 380px) {
 
-  /* Keep the link columns side-by-side even on small phones — stacking them
+  /* Keep the link columns side-by-side even on small phones â€” stacking them
      made the footer far too tall. Just tighten the gap. */
   .footer-nav-group {
     gap: 1rem !important;

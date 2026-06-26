@@ -1,4 +1,4 @@
-/* --- QUALITY SECTION --- */
+﻿/* --- QUALITY SECTION --- */
 .quality-section {
   background: var(--bg-white);
   padding: 5rem 10.5%;
@@ -47,18 +47,21 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   text-align: left;
 }
 
 .quality-card {
-  background: #EAEEFF;
-  border: 2px solid #DFE3F0;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#EAEEFF, #EAEEFF) padding-box,
+    linear-gradient(90deg, #1F2542 0%, #C8D1FF 100%) border-box;
   border-radius: 8px;
-  padding: 1.25rem;
+  padding: 1.688rem 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   min-height: 220px;
 }

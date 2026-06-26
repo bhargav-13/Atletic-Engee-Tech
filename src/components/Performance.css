@@ -1,4 +1,4 @@
-/* --- PERFORMANCE SECTION --- */
+﻿/* --- PERFORMANCE SECTION --- */
 .perf-section {
   background: #F4F8FF;
 }
@@ -49,7 +49,7 @@
 
 .perf-tab {
   flex: 1;
-  text-align: justify;
+  text-align: center;
   padding: 1.75rem 1rem;
   font-family: var(--body-font);
   font-weight: 400;
@@ -88,11 +88,25 @@
 
 .perf-card {
   background: #F4F8FF;
-  /* very light grey */
-  border: 3px solid var(--border-light);
-  border-radius: 8px;
+  border: 1.3px solid transparent;
+  border-radius: 10px;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1.25rem;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.perf-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1.3px;
+  background: linear-gradient(135deg, #676C86 0%, rgba(245,245,245,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .perf-card-header {
@@ -109,15 +123,18 @@
   display: block;
   width: 12px;
   height: 12px;
+  min-width: 12px;
+  min-height: 12px;
   border: 2px solid var(--body-color);
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .perf-card-header h4 {
   font-family: var(--body-font);
   font-weight: 500;
   font-size: 0.95rem;
-  color: var(--body-color);
+  color: #1F2542;
   margin: 0;
 }
 
@@ -128,7 +145,7 @@
 
 .perf-list li {
   font-family: var(--body-font);
-  color: var(--heading-color);
+  color: #000000;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -137,7 +154,7 @@
 }
 
 .perf-list li::before {
-  content: '•';
+  content: '\2022';
   position: absolute;
   left: -0.75rem;
   color: var(--heading-color);
@@ -166,20 +183,3 @@
     margin-bottom: 3.5rem;
   }
 
-  .perf-desc p {
-    font-size: 1.05rem;
-  }
-
-  .perf-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .perf-tabs {
-    flex-wrap: wrap;
-  }
-
-  .perf-tab {
-    flex: 1 1 50%;
-  }
-}

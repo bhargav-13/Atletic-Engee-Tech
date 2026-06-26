@@ -1,4 +1,4 @@
-/* --- FOOTER STYLES --- */
+﻿/* --- FOOTER STYLES --- */
 .footer {
   background-color: #22262F;
   color: #FFFFFF;
@@ -7,7 +7,7 @@
 }
 
 .footer-container {
-  max-width: 1400px;
+  /* max-width: 1400px; */
   margin: 0 auto;
 }
 
@@ -209,11 +209,25 @@
 }
 
 @keyframes heartPulse {
-  0% { transform: scale(1); }
-  15% { transform: scale(1.2); }
-  30% { transform: scale(1); }
-  45% { transform: scale(1.2); }
-  70% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.2);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.2);
+  }
+
+  70% {
+    transform: scale(1);
+  }
 }
 
 .footer-back-to-top-wrap {

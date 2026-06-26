@@ -1,16 +1,18 @@
 import React from 'react';
 import './MetrologyGrid.css';
-import caliperImg from '../../assets/images/Caliper.png';
-import autoSorterImg from '../../assets/images/Auto Sorter.png';
-import hardnessTesterImg from '../../assets/images/Hardness Tester.png';
-import caliper1Img from '../../assets/images/Caliper (1).png';
+import plugGuageImg from '../../assets/images/Plug Guage.png';
+import roughnessTesterImg from '../../assets/images/Roughness Tester.png';
+import hardnessTesterImg from '../../assets/images/Hardness Tester copy.png';
+import coordinateMachineImg from '../../assets/images/Coordinate Measuring Machine.png';
+import profileProjectorImg from '../../assets/images/Profile Projector.png';
+import heightGuageImg from '../../assets/images/Height Guage.png';
 
 const MetrologyGrid = ({ addRevealRef }) => {
   const instruments = [
     {
       id: 'QC-02',
       title: 'Plug Guage',
-      image: caliperImg,
+      image: plugGuageImg,
       desc: 'Hardened stainless steel construction with absolute scale for rapid, precise internal and external dimensions.',
       spec: 'ACC: 0.01MM',
       icon: '📏'
@@ -18,7 +20,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
     {
       id: 'QC-03',
       title: 'Roughness Tester',
-      image: autoSorterImg,
+      image: roughnessTesterImg,
       desc: 'High-speed optical sorting system utilizing neural network algorithms to detect surface defects and dimensional deviations.',
       spec: '1,200 PPM',
       icon: '🎯'
@@ -34,7 +36,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
     {
       id: 'QC-04',
       title: 'Coordinate Measuring Machine',
-      image: caliper1Img,
+      image: coordinateMachineImg,
       desc: 'Hardened stainless steel construction with absolute scale for rapid, precise internal and external dimensions.',
       spec: 'ACC: 0.01MM',
       icon: '📏'
@@ -42,7 +44,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
     {
       id: 'QC-05',
       title: 'Profile Projector',
-      image: caliper1Img,
+      image: profileProjectorImg,
       desc: 'Hardened stainless steel construction with absolute scale for rapid, precise internal and external dimensions.',
       spec: 'ACC: 0.01MM',
       icon: '📏'
@@ -50,7 +52,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
     {
       id: 'QC-06',
       title: 'Height Guage',
-      image: caliper1Img,
+      image: heightGuageImg,
       desc: 'Hardened stainless steel construction with absolute scale for rapid, precise internal and external dimensions.',
       spec: 'ACC: 0.01MM',
       icon: '📏'
@@ -72,7 +74,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
                   <span className="instrument-id">{item.id}</span>
                 </div>
                 <p className="instrument-desc">{item.desc}</p>
-                
+
                 <div className="card-footer">
                   <span className="spec-label">
                     <span className="spec-icon">{item.icon}</span> {item.spec}

@@ -1,4 +1,4 @@
-/* --- NEW HERO SECTION (Full Viewport Dark) --- */
+﻿/* --- NEW HERO SECTION (Full Viewport Dark) --- */
 .hero-new {
   position: relative;
   height: 100vh;
@@ -23,7 +23,7 @@
   z-index: 0;
 }
 
-/* Dark navy gradient overlay — dense on left, fades right */
+/* Dark navy gradient overlay â€” dense on left, fades right */
 .hero-new::after {
   content: '';
   position: absolute;
@@ -31,7 +31,7 @@
   z-index: 1;
 }
 
-/* Content block — sits above overlay */
+/* Content block â€” sits above overlay */
 .hero-content-wrap {
   position: relative;
   z-index: 2;

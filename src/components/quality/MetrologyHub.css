@@ -1,4 +1,4 @@
-/* --- METROLOGY HUB --- */
+﻿/* --- METROLOGY HUB --- */
 .metrology-hub-section {
   padding: 5rem 10.5%;
   background: #F4F8FF;
@@ -118,7 +118,7 @@
 .vmm-image-wrapper {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
 }
 

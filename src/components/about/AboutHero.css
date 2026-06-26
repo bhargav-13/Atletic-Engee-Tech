@@ -1,4 +1,4 @@
-/* --- ABOUT HERO SECTION --- */
+﻿/* --- ABOUT HERO SECTION --- */
 .about-hero-section {
   position: relative;
   min-height: 100vh;
@@ -31,7 +31,7 @@
   position: relative;
   z-index: 2;
   padding: 0 10.5%;
-  max-width: 1000px;
+  /* max-width: 1000px; */
 }
 
 .about-hero-badge {
@@ -89,5 +89,9 @@
 
   .about-hero-heading {
     font-size: 2.2rem;
+  }
+
+  .about-hero-content {
+    padding: 0px !important;
   }
 }

@@ -27,8 +27,8 @@ const ComponentsOval = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
@@ -37,7 +37,7 @@ const ComponentsOval = () => {
   return (
     <section className="section components-oval-section" id="oval-components">
       <div className="components-oval-content">
-        <motion.div 
+        <motion.div
           className="comp-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const ComponentsOval = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="comp-title">
-            <h2>Precision Manufacturing,<br />Built for Performance</h2>
+            <h2>Precision Manufacturing, Built<br />for Performance</h2>
             <div className="comp-underline"></div>
           </div>
           <div className="comp-desc">
@@ -57,7 +57,7 @@ const ComponentsOval = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="oval-grid"
           variants={containerVariants}
           initial="hidden"
@@ -69,7 +69,7 @@ const ComponentsOval = () => {
               key={product.id}
               className="oval-card"
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -10,
                 transition: { duration: 0.3 }
               }}
