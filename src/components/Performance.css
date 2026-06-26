@@ -183,3 +183,30 @@
     margin-bottom: 3.5rem;
   }
 }
+
+@media (max-width: 768px) {
+  .perf-title h2 {
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+
+  .perf-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .perf-details h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .perf-card {
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .perf-image img {
+    border-radius: 10px;
+  }
+}

@@ -299,13 +299,61 @@
 @media (max-width: 768px) {
   .manufacture-col {
     min-width: 100%;
+    min-height: unset;
+    padding: 1rem 1.25rem;
+  }
+
+  .about-manufacture-header {
+    padding: 0 6%;
+    margin-bottom: 3rem;
+  }
+
+  .manufacture-layout {
+    padding: 0 6%;
+    gap: 2rem;
   }
 
   .manufacture-subtitle {
     margin-left: 0;
+    font-size: 1.1rem;
   }
 
   .header-title-container {
     gap: 1rem;
+  }
+
+  .col-header {
+    padding-left: 5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .col-header .icon-circle {
+    width: 70px;
+    height: 70px;
+    top: -20px;
+  }
+
+  .col-title {
+    font-size: 1.1rem;
+  }
+
+  .list-item {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+
+  .center-image-orbit {
+    width: 240px;
+    height: 240px;
+  }
+
+  .center-image-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .material-swatch {
+    width: 48px;
+    height: 48px;
   }
 }

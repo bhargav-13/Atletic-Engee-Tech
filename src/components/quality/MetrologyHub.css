@@ -149,3 +149,29 @@
     top: -30px;
   }
 }
+
+@media (max-width: 768px) {
+  .vmm-title {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .vmm-watermark {
+    font-size: 6rem;
+    top: -20px;
+  }
+
+  .vmm-badge {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .vmm-features li {
+    font-size: 0.95rem;
+  }
+
+  .vmm-grid {
+    gap: 3rem;
+  }
+}

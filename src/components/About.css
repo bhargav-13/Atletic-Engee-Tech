@@ -204,6 +204,50 @@
   }
 }
 
+@media (max-width: 768px) {
+  .perf-deliver-title h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .perf-deliver-desc p {
+    font-size: 1rem;
+  }
+
+  .new-about {
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-img-top,
+  .about-img-bottom {
+    height: 180px;
+  }
+
+  .about-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .progress-label {
+    font-size: 0.95rem;
+  }
+
+  .progress-val {
+    font-size: 1rem;
+  }
+
+  .flat-stat-item h3 {
+    font-size: 1.75rem;
+  }
+
+  .flat-stat-item p {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .flat-stats-bar {
     grid-template-columns: repeat(2, 1fr);

@@ -202,20 +202,63 @@ video {
 /* Product Detail Page Overrides */
 @media (max-width: 768px) {
   .product-detail-title {
-    font-size: 2.5rem !important;
-    line-height: 1.1 !important;
-    margin-bottom: 2rem !important;
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 1.25rem !important;
   }
 
   .product-detail-desc {
-    font-size: 1.1rem !important;
+    font-size: 0.95rem !important;
     line-height: 1.6 !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
   }
 
   .main-image-box {
-    aspect-ratio: 16/14 !important;
-    min-height: 300px !important;
+    aspect-ratio: 16/12 !important;
+    min-height: 240px !important;
+  }
+
+  .detail-badge {
+    font-size: 0.7rem !important;
+    padding: 0.35rem 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .detail-container {
+    gap: 2rem !important;
+  }
+
+  /* AboutQuality desc wrapper */
+  .quality-desc-container {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  /* AboutManufacture header */
+  .manufacture-title {
+    font-size: 1.8rem !important;
+  }
+
+  .manufacture-subtitle {
+    font-size: 1rem !important;
+  }
+
+  /* Global section headings */
+  .section-title,
+  .standards-main-title,
+  .vmm-title,
+  .manufacture-title,
+  .quality-title {
+    line-height: 1.2 !important;
+  }
+
+  /* Tighten large gaps on mobile */
+  .perf-deliver-header {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .new-about {
+    margin-bottom: 2.5rem !important;
   }
 }
 
@@ -296,7 +339,8 @@ video {
 /* Global CTA & Map */
 @media (max-width: 768px) {
   .global-cta-text p {
-    font-size: 1.4rem !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
   }
 
   .global-flags {
@@ -546,5 +590,112 @@ video {
 
   .footer-bottom-content {
     text-align: center;
+  }
+}
+
+/* ============================================================
+   FONT SIZE MOBILE OVERRIDES
+   All sections where desktop font-sizes >= 1.2rem lacked
+   a mobile reduction.
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Quality Standards */
+  .standards-p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Quality Commitment */
+  .integrity-p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .stat-label {
+    font-size: 1rem !important;
+  }
+
+  .performance-intro-p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .perf-card-title {
+    font-size: 1.1rem !important;
+  }
+
+  .zero-desc {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Metrology Grid */
+  .instrument-title {
+    font-size: 1rem !important;
+  }
+
+  /* Quality Hero */
+  .hero-top-label {
+    font-size: 0.9rem !important;
+  }
+
+  .quality-hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* About Precision */
+  .precision-main-desc {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* About Excellence */
+  .excellence-main-desc {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* About Products */
+  .featured-card-content h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .small-card-title {
+    font-size: 1.05rem !important;
+  }
+
+  /* About Capabilities */
+  .capabilities-main-desc {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* About Quality */
+  .quality-description {
+    font-size: 1rem !important;
+  }
+
+  .footer-label {
+    font-size: 1rem !important;
+  }
+
+  /* Quality section */
+  .quality-header-desc p {
+    font-size: 1rem !important;
+  }
+
+  /* Reliability Banner */
+  .reliability-text {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Product Detail */
+  .product-detail-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
   }
 }

@@ -86,13 +86,35 @@
 @media (max-width: 768px) {
   .about-hero-section {
     min-height: 80vh;
+    padding: 6rem 6% 4rem;
   }
 
   .about-hero-heading {
     font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
   }
 
   .about-hero-content {
-    padding: 0px !important;
+    padding: 0 !important;
+  }
+
+  .about-hero-badge {
+    font-size: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-hero-desc-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .desc-border {
+    width: 40px;
+    height: 1px;
+  }
+
+  .about-hero-desc {
+    font-size: 1rem;
   }
 }
