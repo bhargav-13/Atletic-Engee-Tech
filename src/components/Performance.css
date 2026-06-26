@@ -102,7 +102,7 @@
   inset: 0;
   border-radius: 10px;
   padding: 1.3px;
-  background: linear-gradient(135deg, #676C86 0%, rgba(245,245,245,0.3) 100%);
+  background: linear-gradient(135deg, #676C86 0%, rgba(245, 245, 245, 0.3) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -182,4 +182,4 @@
     gap: 1.5rem;
     margin-bottom: 3.5rem;
   }
-
+}
