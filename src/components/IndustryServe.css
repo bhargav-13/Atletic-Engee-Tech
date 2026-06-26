@@ -178,6 +178,25 @@
   }
 
   .industry-card {
-    min-height: 240px;
+    min-height: unset;
+    padding: 1rem;
+  }
+
+  .industry-card .ind-icon-box {
+    width: 36px;
+    height: 36px;
+  }
+
+  .industry-card .ind-icon-box img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .industry-card .ind-title {
+    font-size: 0.85rem;
+  }
+
+  .industry-card .ind-description {
+    font-size: 0.82rem;
   }
 }

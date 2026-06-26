@@ -67,7 +67,7 @@ video {
 
   /* Trim vertical rhythm on mobile for non-hero sections. */
   .section,
-  [class*="-section"]:not([class*="hero"]) {
+  [class*="-section"]:not([class*="hero"]):not(.product-grid-section) {
     padding-top: 4rem !important;
     padding-bottom: 4rem !important;
   }
@@ -141,7 +141,7 @@ video {
   .industry-card,
   .instrument-card {
     min-height: auto !important;
-    padding: 2rem !important;
+    padding: 1rem !important;
   }
 
   .product-card-img img,
@@ -190,7 +190,7 @@ video {
     margin-bottom: 2rem !important;
   }
 
-  product-grid-section {
+  .product-grid-section {
     padding-top: 8rem !important;
   }
 
