@@ -122,7 +122,8 @@ video {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  max-width: 100% !important;
+  /* 
+  max-width: 100% !important; */
 }
 
 @media (max-width: 768px) {
