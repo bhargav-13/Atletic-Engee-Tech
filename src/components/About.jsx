@@ -29,7 +29,7 @@ const About = () => {
 
   return (
     <section className="section about-section" id="about">
-      <motion.div 
+      <motion.div
         className="perf-deliver-header"
         initial="hidden"
         whileInView="visible"
@@ -42,15 +42,15 @@ const About = () => {
         </motion.div>
         <motion.div className="perf-deliver-desc" variants={itemVariants}>
           <p>
-            We deliver precision-engineered brass components using advanced manufacturing processes, 
-            ensuring consistent quality, reliability, and performance across global industries and 
+            We deliver precision-engineered brass components using advanced manufacturing processes,
+            ensuring consistent quality, reliability, and performance across global industries and
             demanding applications.
           </p>
         </motion.div>
       </motion.div>
 
       <div className="about-grid new-about">
-        <motion.div 
+        <motion.div
           className="about-images"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -88,7 +88,7 @@ const About = () => {
                 </div>
                 <div className="progress-bar-wrapper">
                   <div className="progress-track" style={{ '--fill': `${item.val}%` }}>
-                    <motion.div 
+                    <motion.div
                       className="progress-fill"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${item.val}%` }}
@@ -105,7 +105,7 @@ const About = () => {
       </div>
 
       {/* Flat Stats Bar */}
-      <motion.div 
+      <motion.div
         className="flat-stats-bar"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -118,11 +118,11 @@ const About = () => {
         </div>
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={300} />+</h3>
-          <p>components delivered</p>
+          <p>Different Components Delivered</p>
         </div>
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={51} />k+</h3>
-          <p>Manufacturer Unit</p>
+          <p>Sq. Ft.+ Manufacturing unit</p>
         </div>
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={10} />+</h3>
