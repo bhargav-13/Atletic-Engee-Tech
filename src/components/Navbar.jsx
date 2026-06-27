@@ -50,7 +50,7 @@ const Navbar = () => {
         aria-label="Menu"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
 
       {/* Mobile Menu Overlay */}

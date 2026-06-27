@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import heroImagePng from '../assets/images/hero_image.png';
 import './Hero.css';
 import MagneticButton from './MagneticButton';
@@ -108,9 +109,9 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <MagneticButton>
-            <button className="btn-explore">
+            <Link to="/product" className="btn-explore" style={{ display: 'inline-block', textDecoration: 'none' }}>
               Explore More
-            </button>
+            </Link>
           </MagneticButton>
         </motion.div>
       </div>
