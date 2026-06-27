@@ -35,7 +35,6 @@ const Footer = () => {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
-                <li><Link to="/quality">Quality</Link></li>
                 <li><Link to="/product">Product</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
               </ul>
@@ -63,9 +62,7 @@ const Footer = () => {
               <h4>ATLANTIC</h4>
               <ul>
                 <li><Link to="/about#certificates">Certificates</Link></li>
-                <li><Link to="/quality">Quality</Link></li>
                 <li><Link to="/#contact-map">Export</Link></li>
-                <li><Link to="/about#what-we-manufacture">Process</Link></li>
               </ul>
             </motion.div>
             <motion.div className="footer-col" variants={staggerItem}>

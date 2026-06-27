@@ -39,7 +39,7 @@ video {
 
 /* Vertical padding â€” desktop */
 .section,
-[class*="-section"]:not([class*="hero"]):not(.about-manufacture-section):not(.product-grid-section) {
+[class*="-section"]:not([class*="hero"]):not(.about-manufacture-section):not(.product-grid-section):not(.contact-map-section) {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
 }
@@ -72,7 +72,7 @@ video {
     padding-bottom: 4rem !important;
   }
 
-  [class*="-section"]:not([class*="hero"]):not(.about-manufacture-section):not(.product-grid-section) {
+  [class*="-section"]:not([class*="hero"]):not(.about-manufacture-section):not(.product-grid-section):not(.contact-map-section) {
     padding-top: 4rem !important;
     padding-bottom: 4rem !important;
   }
