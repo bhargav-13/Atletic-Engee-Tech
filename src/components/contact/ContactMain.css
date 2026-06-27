@@ -329,7 +329,7 @@
 
   .contact-watermark {
     left: 6%;
-    font-size: clamp(5rem, 20vw, 9rem);
+    font-size: clamp(4.5rem, 17vw, 9rem);
   }
 }
 

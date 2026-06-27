@@ -320,8 +320,8 @@ video {
   .zero-watermark {
     font-size: 18rem !important;
     opacity: 0.03 !important;
-    right: 17%;
-    top: 40%;
+    right: 0% !important;
+    top: -30% !important;
   }
 
   .section-title {
