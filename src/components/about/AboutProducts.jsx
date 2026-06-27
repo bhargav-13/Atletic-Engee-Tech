@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Hammer, Cog, Wrench } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import turnedImg from '../../assets/images/Turned Components.png';
+import forgedImg from '../../assets/images/Forging.png';
+import millingImg from '../../assets/images/MIlling.png';
+import broachImg from '../../assets/images/broach component.png';
 import './AboutProducts.css';
 
 const E = [0.22, 1, 0.36, 1];
@@ -64,8 +67,11 @@ const AboutProducts = ({ addRevealRef }) => {
                 transition={{ duration: 0.75, delay: 0.1, ease: E }}
                 {...CARD_HOVER}
               >
+                <div className="small-card-bg-img">
+                  <img src={forgedImg} alt="Forged Parts" />
+                  <div className="small-card-overlay"></div>
+                </div>
                 <h3 className="small-card-title">FORGED PARTS</h3>
-                <div className="small-card-icon"><Hammer size={18} strokeWidth={1.5} /></div>
               </motion.div>
               <motion.div
                 className="product-card-small"
@@ -75,8 +81,11 @@ const AboutProducts = ({ addRevealRef }) => {
                 transition={{ duration: 0.75, delay: 0.2, ease: E }}
                 {...CARD_HOVER}
               >
+                <div className="small-card-bg-img">
+                  <img src={millingImg} alt="Milling" />
+                  <div className="small-card-overlay"></div>
+                </div>
                 <h3 className="small-card-title">MILLING</h3>
-                <div className="small-card-icon"><Cog size={18} strokeWidth={1.5} /></div>
               </motion.div>
             </div>
 
@@ -88,8 +97,11 @@ const AboutProducts = ({ addRevealRef }) => {
               transition={{ duration: 0.75, delay: 0.3, ease: E }}
               {...CARD_HOVER}
             >
+              <div className="small-card-bg-img">
+                <img src={broachImg} alt="Broach Components" />
+                <div className="small-card-overlay"></div>
+              </div>
               <h3 className="small-card-title">BROACH COMPONENTS</h3>
-              <div className="small-card-icon"><Wrench size={18} strokeWidth={1.5} /></div>
             </motion.div>
           </div>
         </div>

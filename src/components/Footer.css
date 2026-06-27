@@ -1,6 +1,6 @@
 ﻿/* --- FOOTER STYLES --- */
 .footer {
-  background-color: #22262F;
+  background: #001731;
   color: #FFFFFF;
   padding: 4rem 10.5% 3rem;
   font-family: var(--body-font);
@@ -97,12 +97,24 @@
   margin-bottom: 0.2rem;
   font-weight: 500;
   color: #FFFFFF;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
+
+.footer-contact:hover { opacity: 0.75; }
 
 .footer-email {
   font-size: 0.9rem;
   color: #FFFFFF;
   font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-email:hover { opacity: 0.75; }
+
+.footer-social {
+  text-decoration: none;
 }
 
 .footer-social-group {

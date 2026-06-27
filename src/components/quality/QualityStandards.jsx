@@ -29,7 +29,7 @@ const QualityStandards = ({ addRevealRef }) => {
               <div className="standards-line-desc">
                 <div className="vertical-accent"></div>
                 <p className="standards-p">
-                  At Atletic Engee Tech, quality is not an inspection phase; it is an inherent property of our workflow.
+                  At Atlantic Engee Tech, quality is not an inspection phase; it is an inherent property of our workflow.
                   Our facilities are audited to the highest aerospace and defense standards, ensuring every unit
                   shipped is mission-ready and compliant with global safety protocols.
                 </p>

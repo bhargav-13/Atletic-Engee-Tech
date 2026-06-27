@@ -7,11 +7,11 @@ const SmoothScroll = ({ children }) => {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     const lenis = new Lenis({
-      duration: isMobile ? 1.2 : 2.0,
+      duration: isMobile ? 0.7 : 1.1,
       easing: (t) => 1.001 - Math.pow(2, -10 * t),
       smoothWheel: true,
-      wheelMultiplier: isMobile ? 0.8 : 0.6,
-      touchMultiplier: 1.15,
+      wheelMultiplier: isMobile ? 1.2 : 1.0,
+      touchMultiplier: 1.5,
       syncTouch: true,
       infinite: false,
     });

@@ -181,8 +181,12 @@
     padding: 6rem 5%;
   }
 
+  .quality-metrics-grid {
+    gap: 1.25rem;
+  }
+
   .quality-metric-card {
-    padding: 2.5rem;
+    padding: 1.25rem;
   }
 
   .metric-footer {
@@ -192,7 +196,25 @@
   }
 
   .quality-bg-text {
-    font-size: 4.5rem;
-    top: -40px;
+    font-size: 4rem;
+    top: -55px;
+  }
+
+  .quality-desc-container {
+    align-items: stretch;
+  }
+
+  .desc-accent-line {
+    height: unset;
+    min-height: 100%;
+    align-self: stretch;
+  }
+
+  .quality-title {
+    margin-bottom: 2rem;
+  }
+
+  .quality-top-grid {
+    margin-bottom: 3rem;
   }
 }

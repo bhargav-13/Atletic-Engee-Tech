@@ -69,7 +69,7 @@
 .zero-watermark {
   position: absolute;
   right: 17%;
-  top: 40%;
+  top: -55%;
   font-family: var(--body-font);
   font-size: 35rem;
   font-weight: 800;

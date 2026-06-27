@@ -48,6 +48,25 @@
   line-height: 1.8;
 }
 
+.quality-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.quality-hero-img-wrap {
+  width: 540px;
+}
+
+.quality-hero-product-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 23, 49, 0.15));
+}
+
 .quality-hero-stat {
   text-align: right;
 }
@@ -173,6 +192,15 @@
   .quality-hero-layout {
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .quality-hero-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .quality-hero-img-wrap {
+    max-width: 350px
   }
 
   .quality-hero-stat {

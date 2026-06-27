@@ -29,7 +29,7 @@ const AboutPrecision = ({ addRevealRef }) => {
           <h2 className="precision-title">Precision Brass Manufacturing for Critical Industries</h2>
           <div className="precision-line"></div>
           <p className="precision-main-desc">
-            Atletico Engee Tech stands at the intersection of traditional metallurgy and futuristic engineering.
+            Atlantic Engee Tech stands at the intersection of traditional metallurgy and futuristic engineering.
             Our focus on specialized brass components serves the world's most demanding sectors—from high-voltage
             EV components to mission-critical defense fasteners.
           </p>

@@ -7,7 +7,7 @@ const E = [0.22, 1, 0.36, 1];
 
 const AboutQuality = ({ addRevealRef }) => {
   return (
-    <section className="about-quality-section" id="quality">
+    <section className="about-quality-section" id="certificates">
       <div className="container">
         <div className="quality-top-grid">
           <motion.div

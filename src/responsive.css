@@ -230,8 +230,9 @@ video {
 
   /* AboutQuality desc wrapper */
   .quality-desc-container {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
+    align-items: stretch !important;
   }
 
   /* AboutManufacture header */
@@ -319,6 +320,8 @@ video {
   .zero-watermark {
     font-size: 18rem !important;
     opacity: 0.03 !important;
+    right: 17%;
+    top: 40%;
   }
 
   .section-title {

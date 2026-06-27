@@ -26,8 +26,8 @@ const Navbar = () => {
     <nav className={`navbar ${isSpecialPage ? 'navbar-quality' : ''}`}>
       <div className="navbar-logo">
         <Link to="/">
-          <img src={logoImg} alt="Atletic Engee Tech Logo" />
-          <span className="logo-text">Atletic Engee Tech</span>
+          <img src={logoImg} alt="Atlantic Engee Tech Logo" />
+          <span className="logo-text">Atlantic Engee Tech</span>
         </Link>
       </div>
 

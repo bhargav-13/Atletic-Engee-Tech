@@ -21,7 +21,7 @@ const capabilities = [
 
 const AboutCapabilities = ({ addRevealRef }) => {
   return (
-    <section className="about-capabilities-section" id="about-capabilities">
+    <section className="about-capabilities-section" id="export">
       <div className="container about-capabilities-grid">
         <motion.div
           className="capabilities-left"

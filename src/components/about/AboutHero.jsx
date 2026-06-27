@@ -53,7 +53,7 @@ const AboutHero = () => {
           <div className="desc-border"></div>
           <p className="about-hero-desc">
             Engineering the future of defense through uncompromising structural
-            integrity and technological sovereignty. At Atletic Engee Tech,
+            integrity and technological sovereignty. At Atlantic Engee Tech,
             we forge the components that define modern security.
           </p>
         </motion.div>

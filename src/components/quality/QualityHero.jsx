@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './QualityHero.css';
 import { E } from '../../lib/animations';
+import productImg from '../../assets/images/product image.png';
 
 const QualityHero = () => {
   return (
@@ -42,13 +43,18 @@ const QualityHero = () => {
           </div>
 
           <motion.div
-            className="quality-hero-stat"
+            className="quality-hero-right"
             initial={{ opacity: 0, x: 40, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: E }}
           >
-            <div className="accuracy-label">±0.001mm</div>
-            <div className="accuracy-sub">BASELINE ACCURACY THRESHOLD</div>
+            <div className="quality-hero-img-wrap">
+              <img src={productImg} alt="Brass Components" className="quality-hero-product-img" />
+            </div>
+            <div className="quality-hero-stat">
+              <div className="accuracy-label">±0.001mm</div>
+              <div className="accuracy-sub">BASELINE ACCURACY THRESHOLD</div>
+            </div>
           </motion.div>
         </div>
       </div>

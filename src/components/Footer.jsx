@@ -35,7 +35,7 @@ const Footer = () => {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
-                <li><a href="#categories">Categories</a></li>
+                <li><Link to="/quality">Quality</Link></li>
                 <li><Link to="/product">Product</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
               </ul>
@@ -43,11 +43,11 @@ const Footer = () => {
             <motion.div className="footer-col" variants={staggerItem}>
               <h4>INDUSTRY</h4>
               <ul>
-                <li><a href="#defence">Defence</a></li>
-                <li><a href="#ev-parts">EV Parts</a></li>
-                <li><a href="#fastener">Fastener</a></li>
-                <li><a href="#automotive">Automotive</a></li>
-                <li><a href="#electrical">Electrical</a></li>
+                <li><Link to="/#industries">Defence</Link></li>
+                <li><Link to="/#industries">EV Parts</Link></li>
+                <li><Link to="/#industries">Fastener</Link></li>
+                <li><Link to="/#industries">Automotive</Link></li>
+                <li><Link to="/#industries">Electrical</Link></li>
               </ul>
             </motion.div>
           </motion.div>
@@ -60,22 +60,22 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <motion.div className="footer-col" style={{marginLeft: '2rem'}} variants={staggerItem}>
-              <h4>ATLETIC</h4>
+              <h4>ATLANTIC</h4>
               <ul>
-                <li><a href="#certificates">Certificates</a></li>
+                <li><Link to="/about#certificates">Certificates</Link></li>
                 <li><Link to="/quality">Quality</Link></li>
-                <li><a href="#export">Export</a></li>
-                <li><a href="#process">Process</a></li>
+                <li><Link to="/#contact-map">Export</Link></li>
+                <li><Link to="/about#what-we-manufacture">Process</Link></li>
               </ul>
             </motion.div>
             <motion.div className="footer-col" variants={staggerItem}>
               <h4>PRODUCTS</h4>
               <ul>
-                <li><a href="#brass-turned">Brass Turned Component</a></li>
-                <li><a href="#brass-forged">Brass Forged Component</a></li>
-                <li><a href="#brass-milling">Brass Milling Component</a></li>
-                <li><a href="#brass-broach">Brass Broach Component</a></li>
-                <li><a href="#brass-stamping">Brass Stamping Component</a></li>
+                <li><Link to="/product">Brass Turned Component</Link></li>
+                <li><Link to="/product">Brass Forged Component</Link></li>
+                <li><Link to="/product">Brass Milling Component</Link></li>
+                <li><Link to="/product">Brass Broach Component</Link></li>
+                <li><Link to="/product">Brass Stamping Component</Link></li>
               </ul>
             </motion.div>
           </motion.div>
@@ -87,10 +87,10 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: E }}
           >
-            <img src={footerLogo} alt="Atletic Logo" className="footer-logo" />
+            <img src={footerLogo} alt="Atlantic Logo" className="footer-logo" />
             <div className="logo-divider"></div>
-            <p className="footer-contact">+91 98245 83526</p>
-            <p className="footer-email">info@atleticengeetech</p>
+            <a href="tel:+919824583526" className="footer-contact">+91 98245 83526</a>
+            <a href="mailto:info@atleticengeetech.com" className="footer-email">info@atleticengeetech</a>
           </motion.div>
 
           {/* ROW 2: Social */}
@@ -106,18 +106,18 @@ const Footer = () => {
 
           <div className="footer-social-group footer-group-2-social">
             <div className="footer-divider"></div>
-            <div className="footer-social" style={{marginLeft: '2rem'}}>
+            <a href="https://wa.me/919824583526" target="_blank" rel="noopener noreferrer" className="footer-social" style={{marginLeft: '2rem'}}>
               <span className="social-name">Whatsapp</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="social-icon">
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
               </svg>
-            </div>
+            </a>
           </div>
 
           {/* ROW 3: Bottom Elements */}
           <div className="footer-copyright-wrap">
             <div className="footer-bottom-content">
-              <p className="copyright">© 2026 — All Copyrights reserved for Atletic Engee Tech</p>
+              <p className="copyright">© 2026 — All Copyrights reserved for Atlantic Engee Tech</p>
               <p className="developer-tag">
                 Designed and developed with <Heart size={14} className="heart-icon" fill="currentColor" /> by <a href="https://codelixitsolutions.com" target="_blank" rel="noopener noreferrer" className="codelix-link">Codelix</a>
               </p>

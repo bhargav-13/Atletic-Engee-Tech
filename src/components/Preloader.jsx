@@ -43,7 +43,7 @@ const Preloader = ({ onFinish }) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <img src={logo} alt="Atletic Logo" className="preloader-logo" />
+          <img src={logo} alt="Atlantic Logo" className="preloader-logo" />
         </motion.div>
         
         <motion.div 
@@ -52,7 +52,7 @@ const Preloader = ({ onFinish }) => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <div className="brand-name">ATLETIC ENGEE TECH</div>
+          <div className="brand-name">ATLANTIC ENGEE TECH</div>
           <div className="tagline">Precision Engineering & Manufacturing</div>
         </motion.div>
 

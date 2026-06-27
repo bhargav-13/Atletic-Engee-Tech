@@ -41,7 +41,7 @@ const AdvancedPreloader = ({ onFinish }) => {
             <div className="logo-box">
               <motion.img
                 src={logo}
-                alt="Atletic Logo"
+                alt="Atlantic Logo"
                 className="intro-logo"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const AdvancedPreloader = ({ onFinish }) => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                  ATLETIC ENGEE TECH
+                  ATLANTIC ENGEE TECH
                 </motion.span>
               </div>
             </div>
