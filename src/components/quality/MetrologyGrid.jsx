@@ -1,18 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './MetrologyGrid.css';
-import plugGuageImg from '../../assets/images/Plug Guage.png';
+import plugGuageImg from '../../assets/images/Plug Gauge.png';
 import roughnessTesterImg from '../../assets/images/Roughness Tester.png';
 import hardnessTesterImg from '../../assets/images/Hardness Tester copy.png';
 import coordinateMachineImg from '../../assets/images/Coordinate Measuring Machine.png';
 import profileProjectorImg from '../../assets/images/Profile Projector.png';
-import heightGuageImg from '../../assets/images/Height Guage.png';
+import heightGuageImg from '../../assets/images/Height Gauge.png';
 
 const MetrologyGrid = ({ addRevealRef }) => {
   const instruments = [
     {
       id: 'QC-02',
-      title: 'Plug Guage',
+      title: 'Plug Gauge',
       image: plugGuageImg,
       desc: 'Hardened stainless steel construction with absolute scale for rapid, precise internal and external dimensions.',
       spec: 'ACC: 0.01MM',
@@ -52,7 +52,7 @@ const MetrologyGrid = ({ addRevealRef }) => {
     },
     {
       id: 'QC-06',
-      title: 'Height Guage',
+      title: 'Height Gauge',
       image: heightGuageImg,
       desc: 'Hardened stainless steel construction with absolute scale for rapid, precise internal and external dimensions.',
       spec: 'ACC: 0.01MM',

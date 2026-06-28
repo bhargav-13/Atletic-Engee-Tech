@@ -38,7 +38,7 @@ const QualityHero = () => {
             >
               Every component is machined at Precision. Metrology protocols are
               rigorous with a clean, high-precision environment of high-tolerance
-              instruments. Robust, cost-engineering optics.
+              instruments and robust optics for cost-effective engineering.
             </motion.p>
           </div>
 

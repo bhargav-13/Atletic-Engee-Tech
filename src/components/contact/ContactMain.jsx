@@ -36,7 +36,7 @@ const ContactMain = () => {
           {/* LEFT */}
           <motion.div className="contact-left" {...fadeUp(0)}>
             <h2 className="contact-left-heading">Chat with the<br />team</h2>
-            <p className="contact-left-sub">Feel free reach out – we'd love to connect</p>
+            <p className="contact-left-sub">Feel free to reach out – we'd love to connect</p>
 
             {/* Email + Phone row */}
             <div className="contact-info-row">

@@ -114,7 +114,7 @@ const About = () => {
       >
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={2007} /></h3>
-          <p>Since Manufacturing unit</p>
+          <p>Established 2007</p>
         </div>
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={300} />+</h3>
@@ -122,7 +122,7 @@ const About = () => {
         </div>
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={51} />k+</h3>
-          <p>Sq. Ft.+ Manufacturing unit</p>
+          <p>Sq. Ft. Manufacturing Unit</p>
         </div>
         <div className="flat-stat-item">
           <h3><AnimatedCounter value={10} />+</h3>
