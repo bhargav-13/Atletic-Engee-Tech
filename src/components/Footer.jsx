@@ -58,7 +58,7 @@ const Footer = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.div className="footer-col" style={{marginLeft: '2rem'}} variants={staggerItem}>
+            <motion.div className="footer-col" style={{ marginLeft: '2rem' }} variants={staggerItem}>
               <h4>ATLANTIC</h4>
               <ul>
                 <li><Link to="/about#certificates">Certificates</Link></li>
@@ -103,7 +103,7 @@ const Footer = () => {
 
           <div className="footer-social-group footer-group-2-social">
             <div className="footer-divider"></div>
-            <a href="https://wa.me/919824583526" target="_blank" rel="noopener noreferrer" className="footer-social" style={{marginLeft: '2rem'}}>
+            <a href="https://wa.me/919824583526" target="_blank" rel="noopener noreferrer" className="footer-social" style={{ marginLeft: '2rem' }}>
               <span className="social-name">Whatsapp</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="social-icon">
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
@@ -116,7 +116,7 @@ const Footer = () => {
             <div className="footer-bottom-content">
               <p className="copyright">© 2026 — All Copyrights reserved for Atlantic Engee Tech</p>
               <p className="developer-tag">
-                Designed and developed with <Heart size={14} className="heart-icon" fill="currentColor" /> by <a href="https://codelixitsolutions.com" target="_blank" rel="noopener noreferrer" className="codelix-link">Codelix</a>
+                Made with <Heart size={14} className="heart-icon" fill="currentColor" /> by <a href="https://codelixitsolutions.com" target="_blank" rel="noopener noreferrer" className="codelix-link">Codelix</a>
               </p>
             </div>
           </div>
