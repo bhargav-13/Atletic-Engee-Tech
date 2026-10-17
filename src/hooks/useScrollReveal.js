@@ -1,35 +1,26 @@
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger, prefersReducedMotion } from '../lib/gsap';
 
-// Map the existing `.reveal-*` direction classes to GSAP "from" offsets.
-const fromVarsFor = (el) => {
-  if (el.classList.contains('reveal-down')) return { opacity: 0, y: -50 };
-  if (el.classList.contains('reveal-left')) return { opacity: 0, x: -60 };
-  if (el.classList.contains('reveal-right')) return { opacity: 0, x: 60 };
-  if (el.classList.contains('reveal-scale')) return { opacity: 0, scale: 0.94 };
-  // Default (and explicit `.reveal-up`): rise up into place.
-  return { opacity: 0, y: 50 };
-};
-
-// Read the optional `.delay-N` class (delay-1 => 0.1s, ...).
-const delayFor = (el) => {
-  for (let i = 1; i <= 5; i++) {
-    if (el.classList.contains(`delay-${i}`)) return i * 0.1;
-  }
-  return 0;
+// Starting offset for each `.reveal-*` direction class. The offset is applied
+// through the CSS `translate` property (via --rv-x / --rv-y, see index.css),
+// NOT `transform`, so it never fights Framer Motion hover/tap transforms on
+// the same element.
+const offsetFor = (el) => {
+  if (el.classList.contains('reveal-down')) return { '--rv-x': '0px', '--rv-y': '-40px' };
+  if (el.classList.contains('reveal-left')) return { '--rv-x': '-48px', '--rv-y': '0px' };
+  if (el.classList.contains('reveal-right')) return { '--rv-x': '48px', '--rv-y': '0px' };
+  if (el.classList.contains('reveal-scale')) return { '--rv-x': '0px', '--rv-y': '24px' };
+  return { '--rv-x': '0px', '--rv-y': '40px' }; // default + `.reveal-up`
 };
 
 /**
  * Collects elements via the returned ref callback and reveals them on scroll
- * using GSAP + ScrollTrigger (synced to Lenis in SmoothScroll). Drop-in
- * replacement for the previous IntersectionObserver implementation — the same
- * `.reveal` / `.reveal-up` / `.delay-2` class conventions still apply.
+ * with GSAP ScrollTrigger (synced to Lenis in SmoothScroll). Elements that
+ * enter the viewport together (e.g. a row of cards) are batched and cascade
+ * in with a short stagger instead of all moving at once.
  *
- * Uses gsap.fromTo with EXPLICIT end values (opacity:1, no offset). This is
- * deliberate: gsap.from() captures the element's current value as the end
- * state, which breaks under React StrictMode's mount→unmount→remount cycle
- * (the second mount would capture the already-hidden opacity:0 as the target
- * and animate 0→0, leaving content permanently invisible).
+ * Uses explicit from/to values (never gsap.from) so React StrictMode's
+ * mount → unmount → remount can't capture a hidden state as the target.
  */
 const useScrollReveal = () => {
   const revealRefs = useRef([]);
@@ -38,45 +29,29 @@ const useScrollReveal = () => {
     const elements = revealRefs.current.filter(Boolean);
     if (!elements.length) return;
 
-    // Reduced-motion: show everything immediately, no transforms.
-    if (prefersReducedMotion) {
-      elements.forEach((el) => {
-        el.classList.add('visible');
-        gsap.set(el, { clearProps: 'opacity,transform' });
-      });
-      return;
-    }
-
-    const tweens = [];
-
+    // Neutralise the CSS-only fallback (opacity:0 + transition) so GSAP owns it.
     elements.forEach((el) => {
-      // Neutralise the CSS reveal (opacity:0 + its own transition) so GSAP
-      // has full, conflict-free control of the element.
       el.classList.add('visible');
       el.style.transition = 'none';
+    });
 
-      const tween = gsap.fromTo(
-        el,
-        fromVarsFor(el),
-        {
+    if (prefersReducedMotion) return;
+
+    elements.forEach((el) => gsap.set(el, { opacity: 0, ...offsetFor(el) }));
+
+    const triggers = ScrollTrigger.batch(elements, {
+      start: 'top 88%',
+      once: true,
+      onEnter: (batch) =>
+        gsap.to(batch, {
           opacity: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-          duration: 1.1,
-          delay: delayFor(el),
+          '--rv-x': '0px',
+          '--rv-y': '0px',
+          duration: 1,
           ease: 'expo.out',
-          overwrite: 'auto',
-          onComplete: () => gsap.set(el, { clearProps: 'transform' }),
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      );
-
-      tweens.push(tween);
+          stagger: 0.09,
+          overwrite: true,
+        }),
     });
 
     // Recalculate positions once images/fonts settle.
@@ -86,14 +61,11 @@ const useScrollReveal = () => {
 
     return () => {
       window.removeEventListener('load', onLoad);
-      tweens.forEach((tween) => {
-        tween.scrollTrigger?.kill();
-        tween.kill();
-      });
-      // Revert to the natural (visible) state so a StrictMode remount — or any
-      // teardown — never leaves content stranded at opacity:0.
+      triggers.forEach((t) => t.kill());
+      gsap.killTweensOf(elements);
+      // Back to the natural visible state so a remount never strands content.
       elements.forEach((el) => {
-        gsap.set(el, { clearProps: 'opacity,transform' });
+        gsap.set(el, { clearProps: 'opacity,--rv-x,--rv-y' });
         el.style.transition = '';
       });
     };

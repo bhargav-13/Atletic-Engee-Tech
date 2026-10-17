@@ -11,8 +11,8 @@ const ReliabilityBanner = ({ addRevealRef }) => {
     <section className="reliability-section">
       <motion.div
         className="reliability-container"
-        initial={{ opacity: 0, y: 40, scale: 0.97 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.9, ease: E }}
       >
@@ -48,7 +48,7 @@ const ReliabilityBanner = ({ addRevealRef }) => {
             <motion.span
               key={i}
               initial={{ opacity: 0, y: 14, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.55 + i * 0.08, ease: E }}
             >

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../../lib/animations';
 import { Shield, BatteryCharging, Globe } from 'lucide-react';
 import './AboutPrecision.css';
 
@@ -42,8 +43,7 @@ const AboutPrecision = ({ addRevealRef }) => {
                 key={i}
                 className={`industry-focus-card reveal reveal-up delay-${i + 1}`}
                 ref={addRevealRef}
-                whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
-                whileTap={{ scale: 0.98 }}
+                {...hoverLift}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="focus-card-icon">{item.icon}</div>

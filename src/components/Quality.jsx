@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../lib/animations';
 import precisionIcon from '../assets/images/file-icons_precision.png';
 import './Quality.css';
 
@@ -22,9 +23,9 @@ const Quality = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 36, scale: 0.97 },
+    hidden: { opacity: 0, y: 32 },
     visible: {
-      opacity: 1, y: 0, scale: 1,
+      opacity: 1, y: 0,
       transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     }
   };
@@ -33,8 +34,8 @@ const Quality = () => {
     <section className="section quality-section" id="quality-trust">
       <motion.div
         className="quality-header"
-        initial={{ opacity: 0, y: 44, scale: 0.97 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 44 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
@@ -61,8 +62,7 @@ const Quality = () => {
             key={i} 
             className="quality-card"
             variants={cardVariants}
-            whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
-            whileTap={{ scale: 0.98 }}
+            {...hoverLift}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="quality-icon">

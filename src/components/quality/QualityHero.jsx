@@ -44,8 +44,8 @@ const QualityHero = () => {
 
           <motion.div
             className="quality-hero-right"
-            initial={{ opacity: 0, x: 40, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.25, ease: E }}
           >
             <div className="quality-hero-img-wrap">

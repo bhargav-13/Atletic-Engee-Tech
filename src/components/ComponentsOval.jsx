@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../lib/animations';
 import { ArrowUpRight } from 'lucide-react';
 import { getProductById } from '../lib/products';
 import ProductCard from './product/ProductCard';
@@ -57,8 +58,7 @@ const ComponentsOval = () => {
             to="/product"
             className="featured-catalog-card"
             aria-label="Explore the full product catalogue"
-            whileHover={{ y: -8, boxShadow: '0 28px 56px rgba(31, 37, 66, 0.35)' }}
-            whileTap={{ scale: 0.98 }}
+            {...hoverLift}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="fc-stack" aria-hidden="true">

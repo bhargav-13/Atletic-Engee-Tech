@@ -12,8 +12,8 @@ const DetailHero = ({ product, addRevealRef }) => {
       <div className="detail-container">
         <motion.div
           className="gallery-column"
-          initial={{ opacity: 0, x: -48, scale: 0.97 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, x: -48 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: E }}
         >
           <div className="main-image-box">
@@ -47,8 +47,8 @@ const DetailHero = ({ product, addRevealRef }) => {
 
         <motion.div
           className="info-column"
-          initial={{ opacity: 0, x: 48, scale: 0.97 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, x: 48 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: E }}
         >
           <motion.span

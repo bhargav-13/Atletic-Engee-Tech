@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../../lib/animations';
 import skilledWorkforce from '../../assets/images/Skilled Workforce.png';
 import highVolume from '../../assets/images/High Volume Production.png';
 import fastTurnaround from '../../assets/images/Fast Turnaround.png';
@@ -25,8 +26,8 @@ const AboutCapabilities = ({ addRevealRef }) => {
       <div className="container about-capabilities-grid">
         <motion.div
           className="capabilities-left"
-          initial={{ opacity: 0, x: -48, scale: 0.97 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, x: -48 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.9, ease: E }}
         >
@@ -45,11 +46,11 @@ const AboutCapabilities = ({ addRevealRef }) => {
               <motion.div
                 key={i}
                 className="capability-hex-item"
-                initial={{ opacity: 0, y: 32, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: E }}
-                whileHover={{ y: -8, scale: 1.04, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                {...hoverLift}
                 whileTap={{ scale: 0.97 }}
               >
                 <div className="hex-inner-content">

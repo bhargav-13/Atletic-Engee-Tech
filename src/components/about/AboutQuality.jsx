@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../../lib/animations';
 import './AboutQuality.css';
 import certImg from '../../assets/images/Industrial quality control lab.png';
 
@@ -12,8 +13,8 @@ const AboutQuality = ({ addRevealRef }) => {
         <div className="quality-top-grid">
           <motion.div
             className="quality-text-content"
-            initial={{ opacity: 0, x: -48, scale: 0.97 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: -48 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, ease: E }}
           >
@@ -33,8 +34,8 @@ const AboutQuality = ({ addRevealRef }) => {
           </motion.div>
           <motion.div
             className="quality-cert-container"
-            initial={{ opacity: 0, x: 48, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: 48 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, delay: 0.1, ease: E }}
           >
@@ -50,12 +51,11 @@ const AboutQuality = ({ addRevealRef }) => {
             <motion.div
               key={idx}
               className="quality-metric-card"
-              initial={{ opacity: 0, y: 36, scale: 0.97 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: idx * 0.12, ease: E }}
-              whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
-              whileTap={{ scale: 0.98 }}
+              {...hoverLift}
             >
               <div className="metric-header">
                 <span className="metric-number">{card.num}</span>

@@ -165,6 +165,12 @@ button {
   transform: translate(0, 0) scale(1);
 }
 
+/* useScrollReveal drives the entrance offset through `translate`, which
+   stacks with (instead of overriding) Framer Motion's hover transform */
+.reveal {
+  translate: var(--rv-x, 0px) var(--rv-y, 0px);
+}
+
 /* Delay Utils */
 .delay-1 {
   transition-delay: 0.1s;

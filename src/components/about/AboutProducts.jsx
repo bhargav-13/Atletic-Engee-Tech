@@ -44,8 +44,8 @@ const AboutProducts = () => {
               to={`/product/${p.id}`}
               className={`ap-tile ${i === 0 ? 'ap-tile--lg' : ''}`}
               aria-label="View this product"
-              initial={{ opacity: 0, y: 32, scale: 0.97 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: i * 0.08, ease: E }}
               whileHover={{ y: -6 }}

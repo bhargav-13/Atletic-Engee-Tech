@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../../lib/animations';
 import highPrecisionIcon from '../../assets/images/High Precision.png';
 import scalableProductionIcon from '../../assets/images/Scalable Production.png';
 import globalStandardsIcon from '../../assets/images/Global Standards.png';
@@ -22,7 +23,7 @@ const AboutExcellence = ({ addRevealRef }) => {
         <div className="excellence-right">
           <div className="excellence-cards-grid">
             {/* High Precision Card */}
-            <motion.div className="excellence-card-item card-light reveal reveal-up delay-1" ref={addRevealRef} whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="excellence-card-item card-light reveal reveal-up delay-1" ref={addRevealRef} {...hoverLift} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
               <div className="icon-box-dark">
                 <img src={highPrecisionIcon} alt="High Precision" className="excellence-icon-img" />
               </div>
@@ -35,7 +36,7 @@ const AboutExcellence = ({ addRevealRef }) => {
             </motion.div>
 
             {/* Scalable Production Card */}
-            <motion.div className="excellence-card-item card-dark reveal reveal-up delay-2" ref={addRevealRef} whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="excellence-card-item card-dark reveal reveal-up delay-2" ref={addRevealRef} {...hoverLift} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
               <div className="icon-box-outline">
                 <img src={scalableProductionIcon} alt="Scalable Production" className="excellence-icon-img" />
               </div>
@@ -44,7 +45,7 @@ const AboutExcellence = ({ addRevealRef }) => {
             </motion.div>
 
             {/* Bottom Card (Wide) */}
-            <motion.div className="excellence-card-wide reveal reveal-up delay-3" ref={addRevealRef} whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }} whileTap={{ scale: 0.98 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
+            <motion.div className="excellence-card-wide reveal reveal-up delay-3" ref={addRevealRef} {...hoverLift} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
               <div className="wide-icon-circle">
                 <img src={globalStandardsIcon} alt="Global Standards" className="excellence-icon-img" />
               </div>

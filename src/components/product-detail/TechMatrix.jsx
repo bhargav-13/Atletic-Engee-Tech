@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../../lib/animations';
 import './TechMatrix.css';
 
 const E = [0.22, 1, 0.36, 1];
@@ -9,8 +10,8 @@ const TechMatrix = ({ specs, addRevealRef }) => {
     <section className="tech-matrix-section">
       <motion.div
         className="matrix-header"
-        initial={{ opacity: 0, y: 32, scale: 0.97 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.85, ease: E }}
       >
@@ -22,12 +23,11 @@ const TechMatrix = ({ specs, addRevealRef }) => {
           <motion.div
             key={idx}
             className="matrix-item"
-            initial={{ opacity: 0, y: 28, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.7, delay: idx * 0.06, ease: E }}
-            whileHover={{ y: -6, scale: 1.02, boxShadow: '0 16px 36px rgba(0,0,0,0.09)' }}
-            whileTap={{ scale: 0.98 }}
+            {...hoverLift}
           >
             <span className="spec-id">
               {spec.icon ? <img src={spec.icon} alt={spec.label} className="tech-matrix-icon" /> : spec.id}

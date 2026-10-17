@@ -6,34 +6,58 @@
 /** Expo ease-out — the hallmark of premium motion design */
 export const E = [0.22, 1, 0.36, 1];
 
-/** Fade up with scale — standard section reveal */
+/** Springy settle used by hover / tap so cards feel physical, not linear */
+export const SPRING = { type: 'spring', stiffness: 320, damping: 26, mass: 0.6 };
+
+/**
+ * Standard card hover: lift + navy-tinted shadow, no scale (scaling blurs
+ * text mid-animation). Spread onto any motion element: <motion.div {...hoverLift}>.
+ * Transitions live inside the gestures so they never override an element's
+ * own entrance transition.
+ */
+export const hoverLift = {
+  whileHover: {
+    y: -6,
+    boxShadow: '0 22px 44px -18px rgba(31, 37, 66, 0.28)',
+    transition: SPRING,
+  },
+  whileTap: { scale: 0.985, transition: SPRING },
+};
+
+/** Smaller lift for icons, chips and compact tiles */
+export const hoverLiftSoft = {
+  whileHover: { y: -4, transition: SPRING },
+  whileTap: { scale: 0.97, transition: SPRING },
+};
+
+/** Fade up — standard section reveal (no scale: it softens text while moving) */
 export const fadeUp = (delay = 0, duration = 0.9) => ({
-  initial: { opacity: 0, y: 44, scale: 0.97 },
-  whileInView: { opacity: 1, y: 0, scale: 1 },
+  initial: { opacity: 0, y: 36 },
+  whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-60px' },
   transition: { duration, delay, ease: E },
 });
 
-/** Slide in from left with scale */
+/** Slide in from left */
 export const fadeLeft = (delay = 0) => ({
-  initial: { opacity: 0, x: -56, scale: 0.97 },
-  whileInView: { opacity: 1, x: 0, scale: 1 },
+  initial: { opacity: 0, x: -48 },
+  whileInView: { opacity: 1, x: 0 },
   viewport: { once: true, margin: '-60px' },
   transition: { duration: 0.9, delay, ease: E },
 });
 
-/** Slide in from right with scale */
+/** Slide in from right */
 export const fadeRight = (delay = 0) => ({
-  initial: { opacity: 0, x: 56, scale: 0.97 },
-  whileInView: { opacity: 1, x: 0, scale: 1 },
+  initial: { opacity: 0, x: 48 },
+  whileInView: { opacity: 1, x: 0 },
   viewport: { once: true, margin: '-60px' },
   transition: { duration: 0.9, delay, ease: E },
 });
 
 /** Animate into view on mount (for hero sections, not scroll-triggered) */
 export const enterUp = (delay = 0, duration = 0.9) => ({
-  initial: { opacity: 0, y: 44, scale: 0.97 },
-  animate: { opacity: 1, y: 0, scale: 1 },
+  initial: { opacity: 0, y: 36 },
+  animate: { opacity: 1, y: 0 },
   transition: { duration, delay, ease: E },
 });
 
@@ -45,8 +69,8 @@ export const stagger = (delay = 0.08, delayChildren = 0.05) => ({
 
 /** Individual stagger child — pair with stagger() above */
 export const staggerItem = {
-  hidden:  { opacity: 0, y: 36, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.8, ease: E } },
+  hidden:  { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: E } },
 };
 
 /** Clip-path title reveal — text rises up through a mask */

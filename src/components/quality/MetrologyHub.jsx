@@ -22,8 +22,8 @@ const MetrologyHub = ({ addRevealRef }) => {
         <div className="vmm-grid">
           <motion.div
             className="vmm-content"
-            initial={{ opacity: 0, x: -48, scale: 0.97 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: -48 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.9, ease: E }}
           >
@@ -35,8 +35,8 @@ const MetrologyHub = ({ addRevealRef }) => {
                 <motion.span
                   key={i}
                   className="vmm-badge"
-                  initial={{ opacity: 0, y: 12, scale: 0.92 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: E }}
                 >
@@ -77,8 +77,8 @@ const MetrologyHub = ({ addRevealRef }) => {
 
           <motion.div
             className="vmm-visual"
-            initial={{ opacity: 0, x: 48, scale: 0.94 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, x: 48 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.95, delay: 0.1, ease: E }}
           >

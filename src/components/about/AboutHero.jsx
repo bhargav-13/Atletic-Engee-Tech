@@ -16,8 +16,8 @@ const AboutHero = () => {
       <div className="about-hero-content">
         <motion.div
           className="about-hero-badge"
-          initial={{ opacity: 0, x: -28, scale: 0.95 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, x: -28 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: E }}
         >
           VANGUARD PRECISION SYSTEMS

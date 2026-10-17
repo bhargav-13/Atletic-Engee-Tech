@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../lib/animations';
 import './IndustryServe.css';
 
 import tankIcon from '../assets/images/game-icons_tank.svg';
@@ -26,8 +27,8 @@ const IndustryServe = () => (
 
       <motion.div
         className="industry-header-flex"
-        initial={{ opacity: 0, y: 32, scale: 0.97 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.9, ease: E }}
       >
@@ -53,7 +54,7 @@ const IndustryServe = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.4, delay: i * 0.05, ease: E }}
-            whileHover={{ y: -6, boxShadow: '0 20px 44px rgba(0,0,0,0.12)', transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] } }}
+            {...hoverLift}
           >
             <div className="card-bar" />
             <div className="card-body">

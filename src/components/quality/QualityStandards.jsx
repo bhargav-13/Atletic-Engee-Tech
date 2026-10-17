@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { hoverLift } from '../../lib/animations';
 import './QualityStandards.css';
 import certImg from '../../assets/images/Industrial quality control lab.png';
 import useParallax from '../../hooks/useParallax';
@@ -14,8 +15,8 @@ const QualityStandards = ({ addRevealRef }) => {
       <div className="container">
         <motion.div
           className="standards-header"
-          initial={{ opacity: 0, y: 36, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.9, ease: E }}
         >
@@ -37,8 +38,8 @@ const QualityStandards = ({ addRevealRef }) => {
             </div>
             <motion.div
               className="standards-cert-box"
-              initial={{ opacity: 0, x: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.9, delay: 0.15, ease: E }}
             >
@@ -56,12 +57,11 @@ const QualityStandards = ({ addRevealRef }) => {
             <motion.div
               key={i}
               className="standard-card"
-              initial={{ opacity: 0, x: card.dir * 48, scale: 0.97 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              initial={{ opacity: 0, x: card.dir * 48 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.85, delay: i * 0.1, ease: E }}
-              whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
-              whileTap={{ scale: 0.98 }}
+              {...hoverLift}
             >
               <div className="header-meta">
                 <span className="index">{card.idx}</span>
