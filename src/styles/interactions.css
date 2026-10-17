@@ -33,20 +33,24 @@
   box-shadow: inset 0 -3px 0 #001731;
 }
 
-/* ── 2. Icons inside cards: small springy nudge ── */
-:is(.quality-icon, .ind-icon-box img, .excellence-icon-img, .hex-icon-circle,
-    .tech-matrix-icon, .focus-card-icon) {
+/* ── 2. Icons inside cards: small springy nudge ──
+   Always transform the icon itself (img / svg), never a wrapper: some
+   wrappers (.quality-icon, .focus-card-icon) span the full card width, and
+   rotating/scaling that wide box swung the icon out of place. */
+:is(.quality-icon > img, .ind-icon-box img, .excellence-icon-img, .hex-icon-circle,
+    .tech-matrix-icon, .focus-card-icon > svg) {
   transition: transform 0.5s var(--ix-spring);
+  transform-origin: center;
 }
 
 @media (hover: hover) {
-  :is(.quality-card:hover .quality-icon,
+  :is(.quality-card:hover .quality-icon > img,
       .industry-card:hover .ind-icon-box img,
       .excellence-card-item:hover .excellence-icon-img,
       .excellence-card-wide:hover .excellence-icon-img,
       .capability-hex-item:hover .hex-icon-circle,
       .matrix-item:hover .tech-matrix-icon,
-      .industry-focus-card:hover .focus-card-icon) {
+      .industry-focus-card:hover .focus-card-icon > svg) {
     transform: translateY(-3px) rotate(-6deg) scale(1.08);
   }
 }
@@ -179,8 +183,8 @@
   .footer-col ul li a,
   .footer-col ul li a::after,
   .btn-explore::after,
-  :is(.quality-icon, .ind-icon-box img, .excellence-icon-img, .hex-icon-circle,
-      .tech-matrix-icon, .focus-card-icon),
+  :is(.quality-icon > img, .ind-icon-box img, .excellence-icon-img, .hex-icon-circle,
+      .tech-matrix-icon, .focus-card-icon > svg),
   .product-card .product-card-img img {
     transition: none !important;
   }
