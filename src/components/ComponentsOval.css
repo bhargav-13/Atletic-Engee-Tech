@@ -4,133 +4,209 @@
 }
 
 .components-oval-content {
-  /* max-width: 1400px; */
   margin: 0 auto;
 }
 
+/* Component header styles live in index.css */
 
-/* Component header styles moved to index.css */
-
-
-/* --- PRODUCT GRID --- */
-
-/* --- PRODUCT GRID --- */
-.oval-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  row-gap: 1.5rem;
+/* Heading is already written in title case; index.css capitalizes every
+   word ("For"), and balance keeps narrow screens from leaving one word alone */
+.comp-title h2.comp-title-balanced {
+  text-transform: none;
+  text-wrap: balance;
 }
 
-.oval-card {
-  border: 1.3px solid transparent;
-  background:
-    linear-gradient(#F4F8FF, #F4F8FF) padding-box,
-    linear-gradient(108.81deg, #676C86 1.03%, #C0C0C0 100.93%) border-box;
-  border-radius: 10px;
-  padding: 1.5rem;
+/* --- FEATURED PRODUCTS ---
+   Reuses the catalogue grid + cards from ProductGrid.css (4 / 2 columns). */
+.oval-featured-grid {
+  margin-top: 0.5rem;
+}
+
+/* ── Last slot: navy "full catalogue" card, square like the photo cards ── */
+.featured-catalog-card {
+  position: relative;
+  aspect-ratio: 1;
   display: flex;
   flex-direction: column;
-  position: relative;
-  transition: all 0.3s ease;
-  min-height: 400px;
+  justify-content: space-between;
+  padding: 1.4rem;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  background: #1F2542;
 }
 
-.oval-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  background:
-    linear-gradient(#F4F8FF, #F4F8FF) padding-box,
-    linear-gradient(108.81deg, #676C86 1.03%, #9CA3AF 100.93%) border-box;
-}
-
-.oval-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-
-.oval-ring {
-  width: 13px;
-  height: 13px;
-  border: 2px solid #1F2542;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.oval-title {
-  font-family: var(--body-font);
-  font-size: 0.95rem;
-  /* Smaller font matching the image */
-  color: #374151;
-  font-weight: 500;
-}
-
-.oval-card-img {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.oval-card-img img {
-  max-height: 290px;
-  max-width: 70%;
-  object-fit: contain;
-}
-
-.oval-card-footer {
+/* Blueprint grid + soft orange glow, fading in from the top-right */
+.featured-catalog-card::before {
+  content: '';
   position: absolute;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  color: #111827;
-  display: flex;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(251, 96, 23, 0.28), transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 22px 22px;
+  -webkit-mask-image: linear-gradient(200deg, #000 20%, transparent 85%);
+  mask-image: linear-gradient(200deg, #000 20%, transparent 85%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.featured-catalog-card:hover::before {
+  transform: scale(1.08);
+}
+
+/* Fanned stack of three product photos */
+.fc-stack {
+  position: relative;
+  height: 46%;
+  margin-top: 0.25rem;
+}
+
+.fc-stack img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fc-stack img:nth-child(1) { transform: translate(0, 10%) rotate(-8deg); z-index: 1; }
+.fc-stack img:nth-child(2) { transform: translate(38%, 0) rotate(2deg); z-index: 2; }
+.fc-stack img:nth-child(3) { transform: translate(78%, 12%) rotate(10deg); z-index: 3; }
+
+/* Spread the fan on hover */
+.featured-catalog-card:hover .fc-stack img:nth-child(1) { transform: translate(-6%, 6%) rotate(-14deg); }
+.featured-catalog-card:hover .fc-stack img:nth-child(2) { transform: translate(40%, -8%) rotate(0deg); }
+.featured-catalog-card:hover .fc-stack img:nth-child(3) { transform: translate(88%, 6%) rotate(16deg); }
+
+.fc-body {
+  padding-right: 3.5rem;
+}
+
+.fc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--body-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #FB6017;
+}
+
+.fc-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: #FB6017;
+}
+
+.featured-catalog-card h3 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin: 0.55rem 0 0;
+}
+
+/* Round orange arrow, bottom-right */
+.fc-arrow {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  background: #FB6017;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(251, 96, 23, 0.4);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, color 0.3s ease;
 }
 
-.oval-swap-icon {
-  width: 28px;
-  height: 28px;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
+.featured-catalog-card:hover .fc-arrow {
+  transform: rotate(45deg) scale(1.08);
+  background: #fff;
+  color: #1F2542;
 }
 
-.oval-card:hover .oval-swap-icon {
-  transform: rotate(-45deg);
-  opacity: 1;
+@media (prefers-reduced-motion: reduce) {
+  .featured-catalog-card::before,
+  .fc-stack img,
+  .fc-arrow {
+    transition: none;
+  }
 }
-
 
 /* --- RESPONSIVE --- */
-@media (max-width: 1200px) {
-  .oval-grid {
-    gap: 1rem;
-  }
-
-  .oval-card {
-    padding: 1.5rem;
-    min-height: 420px;
-  }
-}
-
 @media (max-width: 992px) {
   .comp-header {
     flex-direction: column;
     gap: 1.5rem;
   }
+}
 
-  .oval-grid {
+/* 8 cards: skip the catalogue grid's 3-column step so rows stay complete */
+@media (max-width: 1024px) {
+  .product-catalog-grid.oval-featured-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .oval-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .featured-catalog-card {
+    padding: 0.85rem;
   }
 
-  .oval-card {
-    min-height: 350px;
+  .fc-stack {
+    height: 40%;
+    margin-top: 0;
+  }
+
+  .fc-stack img {
+    width: 40%;
+    border-radius: 7px;
+    border-width: 1.5px;
+  }
+
+  /* arrow moves top-right so the heading gets the full width */
+  .fc-body {
+    padding-right: 0;
+  }
+
+  /* too tight at phone size: photos + heading only */
+  .fc-eyebrow {
+    display: none;
+  }
+
+  /* !important: responsive.css forces every h3 to 1.35rem on mobile */
+  .featured-catalog-card h3 {
+    font-size: 0.95rem !important;
+    margin-top: 0;
+  }
+
+  .fc-arrow {
+    width: 30px;
+    height: 30px;
+    top: 0.7rem;
+    right: 0.7rem;
+    bottom: auto;
+  }
+
+  .fc-arrow svg {
+    width: 16px;
+    height: 16px;
   }
 }

@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local photo backups (not used by the site): full-size original JPEGs
+# and extra-angle shots removed from the catalogue
+original-photos/
+src/assets/product-extra-angles/

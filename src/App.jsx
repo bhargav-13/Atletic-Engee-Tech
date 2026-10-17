@@ -9,6 +9,7 @@ import About from './pages/About';
 import Quality from './pages/Quality';
 import Product from './pages/Product';
 import ProductDetail from './pages/ProductDetail';
+import ProductEnquiry from './pages/ProductEnquiry';
 import Contact from './pages/Contact';
 
 // Components
@@ -29,6 +30,7 @@ const AnimatedRoutes = () => {
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/product" element={<PageTransition><Product /></PageTransition>} />
         <Route path="/product/electric-pin" element={<PageTransition><ProductDetail /></PageTransition>} />
+        <Route path="/product/:id" element={<PageTransition><ProductEnquiry /></PageTransition>} />
         <Route path="/quality" element={<PageTransition><Quality /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>

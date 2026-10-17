@@ -1,4 +1,4 @@
-.product-grid-section {
+﻿.product-grid-section {
   padding: 10rem 10.5% 5rem;
   background: #F4F8FF;
 }
@@ -94,6 +94,216 @@
   display: block;
 }
 
+.product-grid-meta {
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  color: #676C86;
+  margin-bottom: 1.25rem;
+  text-align: right;
+}
+
+/* Image-only catalogue: denser 4-up grid */
+.product-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* responsive.css pads .product-card and caps its image at 200px on mobile;
+   catalogue cards are full-bleed photos, so undo that here */
+.product-catalog-grid .product-card {
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+
+.product-catalog-grid .product-card-img img {
+  width: 100% !important;
+  max-height: none !important;
+}
+
+/* Pagination */
+.product-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.page-btn {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1F2542;
+  border-radius: 8px;
+  background: #F4F8FF;
+  color: #1F2542;
+  font-family: var(--body-font);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled),
+.page-btn.active {
+  background: #1F2542;
+  color: #fff;
+}
+
+.page-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.page-gap {
+  color: #676C86;
+  padding: 0 0.25rem;
+}
+
+/* Image-only cards: photo fills the whole card */
+.product-card.product-card--image-only {
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.product-card--image-only .product-card-img {
+  position: relative;
+}
+
+.product-card--image-only .product-card-img img {
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Diagonal light sheen that sweeps across the metal on hover */
+.product-card--image-only .product-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+/* Navy gradient + "Enquire Now" rising from the bottom */
+.catalog-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  /* right padding keeps the label clear of the arrow chip */
+  padding: 1.1rem 3.6rem 1.25rem 1.1rem;
+  background: linear-gradient(to top, rgba(31, 37, 66, 0.82) 0%, rgba(31, 37, 66, 0.25) 40%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.catalog-cta {
+  font-family: var(--body-font);
+  font-size: clamp(0.72rem, 1.05vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  transform: translateY(14px);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s, opacity 0.35s ease 0.05s;
+}
+
+/* Round arrow chip, always visible; turns navy on hover */
+.catalog-chip {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 248, 255, 0.92);
+  box-shadow: 0 4px 12px rgba(31, 37, 66, 0.12);
+  z-index: 2;
+  transition: background 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.catalog-chip img {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+}
+
+.product-card--image-only:focus-visible {
+  outline: 2px solid #1F2542;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .product-card--image-only:hover .product-card-img img {
+    transform: scale(1.08);
+  }
+
+  .product-card--image-only:hover .product-card-img::after {
+    transform: translateX(120%);
+    transition: transform 0.9s ease;
+  }
+
+  .product-card--image-only:hover .catalog-overlay {
+    opacity: 1;
+  }
+
+  .product-card--image-only:hover .catalog-cta {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .product-card--image-only:hover .catalog-chip {
+    background: #1F2542;
+    transform: scale(1.08);
+  }
+
+  .product-card--image-only:hover .catalog-chip img {
+    transform: rotate(-45deg);
+    filter: brightness(0) invert(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card--image-only .product-card-img img,
+  .product-card--image-only .product-card-img::after,
+  .catalog-cta,
+  .catalog-chip,
+  .catalog-chip img {
+    transition: none !important;
+  }
+
+  .product-card--image-only .product-card-img::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .catalog-chip {
+    width: 32px;
+    height: 32px;
+    right: 0.6rem;
+    bottom: 0.6rem;
+  }
+
+  .catalog-chip img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
 .product-card-footer {
   position: absolute;
   right: 1.25rem;
@@ -135,6 +345,34 @@
 @media (max-width: 1200px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .product-catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .product-grid-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .product-grid-meta {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  .page-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 0.5rem;
   }
 }
 

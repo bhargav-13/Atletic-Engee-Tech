@@ -1,39 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import swapIcon from '../assets/images/tdesign_swap-right.svg';
-import turnedImg from '../assets/images/ISO 90012015 Certified Facility 3.png';
-import forgedImg from '../assets/images/ISO 90012015 Certified Facility 2.png';
-import millingImg from '../assets/images/ChatGPT Image Mar 28, 2026, 01_17_03 AM 1.png';
-import broachImg from '../assets/images/ChatGPT Image Mar 28, 2026, 01_22_13 AM] 1.png';
-import stampingImg from '../assets/images/ChatGPT Image Mar 28, 2026, 01_26_33 AM 1.png';
+import { ArrowUpRight } from 'lucide-react';
+import { getProductById } from '../lib/products';
+import ProductCard from './product/ProductCard';
 import './ComponentsOval.css';
 
-const productData = [
-  { id: 1, title: 'Brass Turned Components', img: turnedImg },
-  { id: 2, title: 'Brass Forged component', img: forgedImg },
-  { id: 3, title: 'Brass Milling component', img: millingImg },
-  { id: 4, title: 'Brass Broach component', img: broachImg },
-  { id: 5, title: 'Brass Stamping component', img: stampingImg },
-];
+// Hand-picked real catalogue photos shown on the home page.
+// Swap any photo number (the digits in IMG_1234) to change what's featured.
+const FEATURED_IDS = ['1225', '1232', '1258', '1398', '1358', '1442', '1376'];
+const featured = FEATURED_IDS.map(getProductById).filter(Boolean);
+
+// Small fanned photo stack on the catalogue card
+const STACK_IDS = ['1291', '1366', '1405'];
+const stack = STACK_IDS.map(getProductById).filter(Boolean);
+
+const MotionLink = motion.create(Link);
 
 const ComponentsOval = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
   return (
     <section className="section components-oval-section" id="oval-components">
       <div className="components-oval-content">
@@ -45,7 +29,7 @@ const ComponentsOval = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="comp-title">
-            <h2>Precision Manufacturing, Built<br />for Performance</h2>
+            <h2 className="comp-title-balanced">Precision Manufacturing,<br />Built for Performance</h2>
             <div className="comp-underline"></div>
           </div>
           <div className="comp-desc">
@@ -58,33 +42,38 @@ const ComponentsOval = () => {
         </motion.div>
 
         <motion.div
-          className="oval-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          className="product-catalog-grid oval-featured-grid"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          {productData.map((product) => (
-            <motion.div
-              key={product.id}
-              className="oval-card"
-              variants={cardVariants}
-              whileHover={{ y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' }}
+          {featured.map((p, i) => (
+            <ProductCard key={p.id} product={p} index={i} />
+          ))}
+
+          {/* Last slot: leads into the full photo catalogue */}
+          <MotionLink
+            to="/product"
+            className="featured-catalog-card"
+            aria-label="Explore the full product catalogue"
+            whileHover={{ y: -8, boxShadow: '0 28px 56px rgba(31, 37, 66, 0.35)' }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="oval-card-header">
-                <span className="oval-ring"></span>
-                <span className="oval-title">{product.title}</span>
-              </div>
-              <div className="oval-card-img">
-                <img src={product.img} alt={product.title} />
-              </div>
-              <div className="oval-card-footer">
-                <img src={swapIcon} alt="swap" className="oval-swap-icon" />
-              </div>
-            </motion.div>
-          ))}
+          >
+            <div className="fc-stack" aria-hidden="true">
+              {stack.map((p) => (
+                <img key={p.id} src={p.image} alt="" loading="lazy" />
+              ))}
+            </div>
+            <div className="fc-body">
+              <span className="fc-eyebrow">Full Catalogue</span>
+              <h3>Explore every part we make</h3>
+            </div>
+            <span className="fc-arrow" aria-hidden="true">
+              <ArrowUpRight size={22} strokeWidth={2} />
+            </span>
+          </MotionLink>
         </motion.div>
       </div>
     </section>
@@ -92,4 +81,3 @@ const ComponentsOval = () => {
 };
 
 export default ComponentsOval;
-

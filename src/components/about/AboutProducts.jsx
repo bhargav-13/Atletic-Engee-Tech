@@ -1,109 +1,62 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import turnedImg from '../../assets/images/Turned Components.png';
-import forgedImg from '../../assets/images/Forging.png';
-import millingImg from '../../assets/images/MIlling.png';
-import broachImg from '../../assets/images/broach component.png';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import { getProductById } from '../../lib/products';
 import './AboutProducts.css';
 
 const E = [0.22, 1, 0.36, 1];
-const CARD_HOVER = {
-  whileHover: { y: -8, scale: 1.015, boxShadow: '0 24px 48px rgba(0,0,0,0.1)' },
-  whileTap: { scale: 0.98 },
-  transition: { duration: 0.35, ease: E },
-};
+const MotionLink = motion.create(Link);
 
-const AboutProducts = ({ addRevealRef }) => {
+// Real catalogue photos for the showcase: the first one is the large tile.
+// Swap any photo number (the digits in IMG_1234) to change what's shown.
+const SHOWCASE_IDS = ['1229', '1255', '1264', '1325', '1432'];
+const showcase = SHOWCASE_IDS.map(getProductById).filter(Boolean);
+
+const AboutProducts = () => {
   return (
     <section className="about-products-section" id="about-products">
       <div className="container about-products-inner">
         <motion.div
-          className="about-products-header"
-          initial={{ opacity: 0, y: 36, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          className="ap-header"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.9, ease: E }}
+          transition={{ duration: 0.8, ease: E }}
         >
-          <h2 className="about-products-title">ENGINEERED BRASS PRODUCTS</h2>
-          <p className="about-products-subtitle">
-            Our technical catalog encompasses over 300 unique components, each forged for high-stress industrial environments.
-          </p>
+          <div>
+            <span className="ap-eyebrow">What we make</span>
+            <h2 className="about-products-title">Engineered Brass Products</h2>
+            <p className="about-products-subtitle">
+              Our technical catalogue covers a wide range of precision components,
+              each built for high-stress industrial environments.
+            </p>
+          </div>
+          <Link to="/product" className="ap-header-cta">
+            Browse catalogue <ArrowRight size={18} />
+          </Link>
         </motion.div>
 
-        <div className="products-grid-layout">
-          {/* Main Featured Card */}
-          <motion.div
-            className="product-card-featured"
-            initial={{ opacity: 0, x: -48, scale: 0.97 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.9, ease: E }}
-            {...CARD_HOVER}
-          >
-            <div className="featured-card-image">
-              <img src={turnedImg} alt="Turned Components" />
-              <div className="featured-card-overlay"></div>
-            </div>
-            <div className="featured-card-content">
-              <h3>Turned Components</h3>
-              <p>Precision lathing for aerospace-grade circular connectors and structural fasteners.</p>
-            </div>
-            <div className="featured-card-footer">
-              <div className="arrow-icon-box">
-                <ArrowUpRight size={20} />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Cards Stack */}
-          <div className="products-right-stack">
-            <div className="products-top-row">
-              <motion.div
-                className="product-card-small"
-                initial={{ opacity: 0, x: 40, scale: 0.97 }}
-                whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.75, delay: 0.1, ease: E }}
-                {...CARD_HOVER}
-              >
-                <div className="small-card-bg-img">
-                  <img src={forgedImg} alt="Forged Parts" />
-                  <div className="small-card-overlay"></div>
-                </div>
-                <h3 className="small-card-title">FORGED PARTS</h3>
-              </motion.div>
-              <motion.div
-                className="product-card-small"
-                initial={{ opacity: 0, x: 40, scale: 0.97 }}
-                whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.75, delay: 0.2, ease: E }}
-                {...CARD_HOVER}
-              >
-                <div className="small-card-bg-img">
-                  <img src={millingImg} alt="Milling" />
-                  <div className="small-card-overlay"></div>
-                </div>
-                <h3 className="small-card-title">MILLING</h3>
-              </motion.div>
-            </div>
-
-            <motion.div
-              className="product-card-wide"
+        <div className="ap-showcase">
+          {showcase.map((p, i) => (
+            <MotionLink
+              key={p.id}
+              to={`/product/${p.id}`}
+              className={`ap-tile ${i === 0 ? 'ap-tile--lg' : ''}`}
+              aria-label="View this product"
               initial={{ opacity: 0, y: 32, scale: 0.97 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.75, delay: 0.3, ease: E }}
-              {...CARD_HOVER}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: E }}
+              whileHover={{ y: -6 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="small-card-bg-img">
-                <img src={broachImg} alt="Broach Components" />
-                <div className="small-card-overlay"></div>
-              </div>
-              <h3 className="small-card-title">BROACH COMPONENTS</h3>
-            </motion.div>
-          </div>
+              <img src={p.image} alt="" loading="lazy" decoding="async" />
+              <span className="ap-tile-arrow" aria-hidden="true">
+                <ArrowUpRight size={i === 0 ? 22 : 18} />
+              </span>
+            </MotionLink>
+          ))}
         </div>
       </div>
     </section>
