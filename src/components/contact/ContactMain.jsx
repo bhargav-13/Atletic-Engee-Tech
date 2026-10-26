@@ -72,9 +72,7 @@ const ContactMain = () => {
               </div>
               <ul>
                 <li>
-                  <a href="https://www.google.com/maps/search/?api=1&query=Unity+Gate+Nilgiri+Shree+Ram+Industrial+Park+Plot+No+90+To+101+Dared+Jamnagar+Gujarat+361012" target="_blank" rel="noopener noreferrer">
-                    Unity Gate, Nilgiri, Shree Ram Industrial Park, Plot No. 90 To 101, Dared, Jamnagar, Gujarat 361012
-                  </a>
+                  Unity Gate, Nilgiri, Shree Ram Industrial Park, Plot No. 90 To 101, Dared, Jamnagar, Gujarat 361012
                 </li>
               </ul>
             </div>
