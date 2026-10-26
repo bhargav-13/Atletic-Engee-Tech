@@ -148,7 +148,7 @@ const ContactMain = () => {
         <motion.div className="contact-map-wrapper" {...fadeUp(0.1)}>
           <iframe
             title="Atlantic Engee Tech Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.3!2d70.06!3d22.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c9e4f0b1e1a1%3A0x1234567890abcdef!2sDared%2C%20Jamnagar%2C%20Gujarat%20361012!5e0!3m2!1sen!2sin!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59016.77886759878!2d69.99085902167967!3d22.408365399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39576b496b6c4e13%3A0x1ac72124608a0231!2sATLANTIC+ENGEE+TECH!5e0!3m2!1sen!2sin!4v1761474930000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
